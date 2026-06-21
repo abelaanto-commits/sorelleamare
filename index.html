@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sorelle a Mare | Luxury Seafront Restaurant — Ortigia, Siracusa</title>
-  <meta name="description" content="Sorelle a Mare, lounge bar ristorante sul lungomare di Ortigia. Un redesign luminoso, editoriale e premium, coerente con il logo e con la vista sul Mediterraneo." />
+  <meta name="description" content="Sorelle a Mare, lounge bar ristorante sul lungomare di Ortigia. Menu stagionale, tapas, colazione, pranzo, cena e vini al calice." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Manrope:wght@400;500;600;700&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -14,11 +14,8 @@
       --bg: #f7f3ec;
       --bg-soft: #fcfaf6;
       --surface: rgba(255,255,255,.78);
-      --surface-strong: #fffdf9;
       --sand: #eadfce;
-      --sand-deep: #d7c5ad;
       --sky: #dcebf5;
-      --sky-soft: #eef6fb;
       --brand: #4290c0;
       --brand-deep: #214f70;
       --brand-ink: #17354b;
@@ -26,9 +23,7 @@
       --muted: #6c7d87;
       --line: rgba(29,62,86,.12);
       --accent: #cc6f39;
-      --accent-soft: #f2d7bd;
       --radius: 28px;
-      --radius-sm: 18px;
       --shadow: 0 18px 50px rgba(20,48,71,.08);
       --shadow-soft: 0 10px 30px rgba(20,48,71,.05);
       --max: 1320px;
@@ -36,60 +31,48 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Manrope', system-ui, sans-serif; color: var(--text); background:
-      radial-gradient(circle at top left, rgba(66,144,192,.12), transparent 28%),
-      linear-gradient(180deg, #f9f6ef 0%, #f7f3ec 42%, #f3ede3 100%); overflow-x: hidden; }
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(66,144,192,.12), transparent 28%),
+        linear-gradient(180deg, #f9f6ef 0%, #f7f3ec 42%, #f3ede3 100%);
+      overflow-x: hidden;
+    }
     img { max-width: 100%; display: block; }
     button, input, select, textarea { font: inherit; }
     a { color: inherit; }
     section { padding: 110px 0; position: relative; }
     .container { width: min(calc(100% - 48px), var(--max)); margin: 0 auto; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-
     .lang-en [data-it], .lang-it [data-en] { display: none !important; }
 
     .site-header { position: fixed; inset: 0 0 auto; z-index: 50; padding: 22px 0; transition: .45s ease; }
-    .site-header.is-scrolled { padding: 14px 0; backdrop-filter: blur(18px); background: rgba(248, 244, 237, .78); border-bottom: 1px solid rgba(23,53,75,.08); }
+    .site-header.is-scrolled { padding: 14px 0; backdrop-filter: blur(18px); background: rgba(248,244,237,.78); border-bottom: 1px solid rgba(23,53,75,.08); }
     .nav-shell { width: min(calc(100% - 36px), 1380px); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 28px; padding: 16px 22px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1px solid rgba(255,255,255,.24); box-shadow: 0 12px 40px rgba(20,48,71,.06); }
     .site-header.is-scrolled .nav-shell { background: rgba(255,255,255,.7); box-shadow: 0 14px 36px rgba(20,48,71,.08); }
-    .brand-lockup { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; min-width: 0; }
-    .brand-lockup img.icon { width: 42px; flex: none; }
-    .brand-lockup img.wordmark { width: 230px; max-width: 44vw; }
     .nav-menu { display: flex; justify-content: center; gap: 28px; list-style: none; }
-    .nav-menu a, .nav-dropdown-toggle { text-decoration: none; font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: rgba(23,53,75,.82); position: relative; padding-bottom: 6px; font-family: 'Manrope', system-ui, sans-serif; font-weight: 400; }
+    .nav-menu a { text-decoration: none; font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: rgba(23,53,75,.82); position: relative; padding-bottom: 6px; font-weight: 500; }
     .nav-menu a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--brand); transform: scaleX(0); transform-origin: left center; transition: transform .28s ease; }
     .nav-menu a:hover::after, .nav-menu a:focus-visible::after { transform: scaleX(1); }
     .nav-actions { display: flex; align-items: center; gap: 12px; }
     .lang-switch { display: inline-flex; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.56); border: 1px solid rgba(23,53,75,.08); }
     .lang-switch button { border: 0; background: transparent; border-radius: 999px; padding: 9px 12px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); cursor: pointer; }
     .lang-switch button.active { background: rgba(66,144,192,.12); color: var(--brand-deep); }
-    .button, .button-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 24px; border-radius: 999px; text-decoration: none; letter-spacing: .22em; text-transform: uppercase; font-size: 11px; font-weight: 700; transition: transform .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease, border-color .28s ease; }
+    .button, .button-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 24px; border-radius: 999px; text-decoration: none; letter-spacing: .22em; text-transform: uppercase; font-size: 11px; font-weight: 700; transition: transform .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease, border-color .28s ease; cursor: pointer; }
     .button:hover, .button-ghost:hover { transform: translateY(-1px); }
     .button { background: linear-gradient(135deg, var(--brand), #63a9d2); color: white; box-shadow: 0 14px 34px rgba(66,144,192,.22); border: 1px solid transparent; }
     .button-ghost { color: var(--brand-deep); border: 1px solid rgba(66,144,192,.24); background: rgba(255,255,255,.52); }
     .nav-toggle { display: none; width: 48px; aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(23,53,75,.1); background: rgba(255,255,255,.6); cursor: pointer; }
     .nav-toggle span { display: block; width: 18px; height: 1.5px; margin: 5px auto; background: var(--brand-ink); transition: .24s ease; }
+    .nav-weather { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px 5px 9px; border-radius: 999px; background: rgba(220,235,245,.55); border: 1px solid rgba(66,144,192,.22); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--brand-deep); white-space: nowrap; }
+    .weather-temp { font-weight: 700; font-size: 11px; color: var(--brand-ink); }
 
-    .hero { min-height: 100svh; padding: 180px 0 0; display: flex; align-items: end; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background:
-      linear-gradient(90deg, rgba(250,247,241,.94) 0%, rgba(250,247,241,.86) 27%, rgba(250,247,241,.48) 52%, rgba(250,247,241,.14) 72%, rgba(250,247,241,.1) 100%),
-      linear-gradient(180deg, rgba(255,255,255,.32), rgba(255,255,255,0)); z-index: 1; }
-    .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 26%, rgba(255,255,255,.2) 100%); mix-blend-mode: screen; z-index: 1; }
+    .hero { min-height: 100svh; padding: 180px 0 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(250,247,241,.86) 0%, rgba(250,247,241,.48) 55%, rgba(250,247,241,.16) 100%); z-index: 1; }
     .hero-media { position: absolute; inset: 0; }
     .hero-media img, .hero-media video { width: 100%; height: 100%; object-fit: cover; object-position: center center; filter: saturate(1.02) brightness(1.03); }
-    .hero-layout { position: relative; z-index: 2; display: block; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: .36em; text-transform: uppercase; color: var(--brand-deep); margin-bottom: 0; }
-    .eyebrow::before { content: ''; width: 54px; height: 1px; background: rgba(66,144,192,.46); }
-    .hero-copy { max-width: 860px; display: grid; gap: 24px; align-self: center; }
-    .hero-brand { width: min(1080px, 100%); margin-bottom: 0; filter: none; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 0; }
-    .hero-card { padding: 28px; border-radius: var(--radius); background: rgba(255,255,255,.66); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.5); box-shadow: 0 20px 52px rgba(20,48,71,.12); }
-    .hero-card .label { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--brand); margin-bottom: 16px; display: block; }
-    .hero-card .hours { display: grid; gap: 12px; margin-bottom: 22px; }
-    .hero-card .hours div { display: flex; justify-content: space-between; gap: 18px; border-bottom: 1px solid rgba(23,53,75,.08); padding-bottom: 12px; font-size: 14px; color: var(--text); }
-    .hero-card .hours div:last-child { border-bottom: 0; padding-bottom: 0; }
-    .hero-card .hours strong { font-weight: 600; color: var(--brand-ink); }
-    .hero-card .mini-link { color: var(--brand-deep); text-decoration: none; font-size: 13px; font-weight: 600; }
+    .hero-center-logo { position: relative; z-index: 2; width: min(760px, 78vw); filter: drop-shadow(0 20px 44px rgba(20,48,71,.10)); }
 
     .section-head { display: grid; gap: 14px; margin-bottom: 42px; }
     .section-kicker { font-size: 11px; letter-spacing: .34em; text-transform: uppercase; color: var(--brand); }
@@ -103,215 +86,108 @@
     .signature-number { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 44px); color: var(--brand-ink); line-height: 1; }
     .signature-caption { margin-top: 10px; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
 
-    .story-section { padding-top: 64px; }
-    .story-layout { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(320px, .78fr); gap: 34px; align-items: start; }
-    .story-panel, .quote-panel { border-radius: 32px; padding: 38px; background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.58)); border: 1px solid rgba(66,144,192,.08); box-shadow: var(--shadow-soft); }
-    .story-panel .manifesto { display: grid; gap: 18px; }
-    .story-panel p { color: var(--muted); font-size: 16px; line-height: 1.9; }
-    .quote-panel { background: linear-gradient(180deg, rgba(220,235,245,.48), rgba(255,255,255,.78)); }
-    .quote-panel .quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 74px; color: rgba(66,144,192,.38); line-height: .65; }
-    .quote-panel blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.02; color: var(--brand-ink); max-width: 11ch; }
-    .quote-panel small { display: inline-block; margin-top: 18px; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
-    .material-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
-    .material-chip { padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,.75); border: 1px solid rgba(23,53,75,.07); font-size: 13px; color: var(--brand-ink); }
-
     .menu-section { background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.05)); }
     .menu-shell { border-radius: 36px; padding: 34px; background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.56)); border: 1px solid rgba(66,144,192,.08); box-shadow: var(--shadow); }
     .menu-top { display: grid; justify-items: center; gap: 22px; margin-bottom: 30px; }
-    .menu-tabs { display: inline-flex; flex-wrap: wrap; gap: 10px; padding: 8px; border-radius: 999px; background: rgba(255,255,255,.76); border: 1px solid rgba(66,144,192,.12); }
+    .menu-tabs { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 8px; border-radius: 999px; background: rgba(255,255,255,.76); border: 1px solid rgba(66,144,192,.12); }
     .menu-tab { border: 0; background: transparent; color: var(--muted); padding: 14px 18px; border-radius: 999px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; cursor: pointer; transition: .24s ease; }
     .menu-tab.active { background: rgba(66,144,192,.12); color: var(--brand-deep); }
     .menu-panel { display: none; }
     .menu-panel.active { display: block; animation: fade .36s ease; }
-    .menu-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .menu-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
     .menu-category-card { border-radius: 24px; background: rgba(255,255,255,.78); border: 1px solid rgba(23,53,75,.07); padding: 24px; box-shadow: 0 8px 22px rgba(20,48,71,.04); }
     .menu-category-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--brand-ink); margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid rgba(66,144,192,.12); }
     .menu-item-list { display: grid; gap: 6px; }
     .menu-item-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 18px; align-items: start; padding: 14px 0; border-bottom: 1px solid rgba(23,53,75,.06); }
-    .menu-item-card:last-child { border-bottom: 0; padding-bottom: 0; }
-    .menu-item-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; line-height: 1.08; color: var(--text); }
-    .menu-item-desc { margin-top: 5px; font-size: 13px; line-height: 1.65; color: var(--muted); }
-    .menu-item-price { font-family: 'Cormorant Garamond', serif; font-size: 24px; line-height: 1; color: var(--brand); white-space: nowrap; }
-    .menu-note { margin-top: 20px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .menu-item-card:last-child { border-bottom: 0; }
+    .menu-item-name { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; font-weight: 800; color: var(--brand-ink); }
+    .menu-item-desc { margin-top: 5px; color: var(--muted); font-size: 13px; line-height: 1.58; }
+    .menu-item-price { color: var(--brand-deep); font-weight: 800; white-space: nowrap; }
+    .menu-note { margin-top: 24px; color: var(--muted); font-size: 13px; line-height: 1.7; text-align: center; }
 
-    .gallery-grid { display: grid; grid-template-columns: 1.15fr .95fr .95fr; gap: 18px; grid-template-areas: 'a b c' 'a d e' 'f d e'; }
-    .g-1 { grid-area: a; } .g-2 { grid-area: b; } .g-3 { grid-area: c; } .g-4 { grid-area: d; } .g-5 { grid-area: e; } .g-6 { grid-area: f; }
-    .gallery-card { min-height: 280px; }
-    .gallery-button { position: relative; display: block; width: 100%; height: 100%; border: 0; padding: 0; overflow: hidden; border-radius: 28px; cursor: pointer; background: #fff; box-shadow: var(--shadow); }
-    .gallery-button img { width: 100%; height: 100%; object-fit: cover; transition: transform .42s ease; }
-    .gallery-button::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0) 18%, rgba(19,53,75,.12) 100%); }
-    .gallery-meta { position: absolute; left: 20px; right: 20px; bottom: 18px; z-index: 1; display: grid; gap: 6px; text-align: left; }
-    .gallery-kicker { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: rgba(255,255,255,.88); }
-    .gallery-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 2.2vw, 36px); line-height: .96; color: white; max-width: 10ch; }
-    .gallery-button:hover img { transform: scale(1.03); }
+    .gallery-grid { display: grid; gap: 18px; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 270px; grid-template-areas: 'a a b c' 'a a d e' 'f f d e'; }
+    .gallery-card { position: relative; border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-soft); background: var(--sand); }
+    .gallery-card.g-1 { grid-area: a; }
+    .gallery-card.g-2 { grid-area: b; }
+    .gallery-card.g-3 { grid-area: c; }
+    .gallery-card.g-4 { grid-area: d; }
+    .gallery-card.g-5 { grid-area: e; }
+    .gallery-card.g-6 { grid-area: f; }
+    .gallery-button { border: 0; background: transparent; width: 100%; height: 100%; cursor: pointer; display: block; color: white; }
+    .gallery-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.02) brightness(.92); transition: transform .55s ease; }
+    .gallery-card:hover img { transform: scale(1.04); }
+    .gallery-meta { position: absolute; left: 20px; right: 20px; bottom: 20px; display: grid; gap: 6px; text-align: left; }
+    .gallery-kicker { font-size: 10px; letter-spacing: .26em; text-transform: uppercase; opacity: .82; }
+    .gallery-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1; }
 
-    .booking-shell { border-radius: 36px; overflow: hidden; background: linear-gradient(135deg, rgba(220,235,245,.52), rgba(255,255,255,.7)); border: 1px solid rgba(66,144,192,.1); box-shadow: var(--shadow); }
-    .booking-layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); }
-    .booking-info { padding: 44px; background: linear-gradient(180deg, rgba(255,255,255,.34), rgba(255,255,255,.1)); }
-    .booking-info h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 4vw, 56px); color: var(--brand-ink); line-height: .96; max-width: 8ch; }
-    .booking-info p { margin-top: 18px; max-width: 38ch; font-size: 15px; line-height: 1.9; color: var(--muted); }
-    .booking-hours { margin-top: 28px; display: grid; gap: 12px; }
-    .booking-hour { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-bottom: 1px solid rgba(23,53,75,.08); font-size: 14px; }
+    .booking-shell, .contact-card, .map-card { border-radius: 36px; background: rgba(255,255,255,.72); border: 1px solid rgba(66,144,192,.08); box-shadow: var(--shadow); overflow: hidden; }
+    .booking-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 0; }
+    .booking-info, .booking-form-wrap { padding: 42px; }
+    .booking-info { background: linear-gradient(180deg, rgba(220,235,245,.56), rgba(255,255,255,.72)); }
+    .booking-info h3, .book-form-title { font-family: 'Cormorant Garamond', serif; color: var(--brand-ink); font-weight: 400; font-size: clamp(36px, 4vw, 52px); line-height: 1; margin-bottom: 18px; }
+    .booking-info p { color: var(--muted); line-height: 1.8; }
+    .booking-hours { display: grid; gap: 10px; margin-top: 26px; }
+    .booking-hour { display: flex; justify-content: space-between; gap: 18px; border-bottom: 1px solid rgba(23,53,75,.08); padding-bottom: 12px; color: var(--muted); }
     .booking-hour strong { color: var(--brand-ink); }
-    .booking-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-    .chip-link { display: inline-flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 999px; background: rgba(255,255,255,.74); border: 1px solid rgba(23,53,75,.08); text-decoration: none; font-size: 13px; color: var(--brand-deep); font-weight: 600; }
-    .booking-form-wrap { padding: 44px; background: rgba(255,255,255,.76); }
-    .book-form-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; color: var(--brand-ink); line-height: 1; margin-bottom: 24px; }
-    .book-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-    .book-field { display: grid; gap: 8px; }
+    .booking-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .chip-link { text-decoration: none; padding: 12px 15px; border-radius: 999px; background: rgba(255,255,255,.68); border: 1px solid rgba(66,144,192,.13); color: var(--brand-deep); font-weight: 700; font-size: 13px; }
+    .book-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .book-full { grid-column: 1 / -1; }
-    .book-field label { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--brand); }
-    .book-field input, .book-field select, .book-field textarea { width: 100%; border-radius: 16px; border: 1px solid rgba(23,53,75,.11); background: rgba(255,255,255,.88); padding: 15px 16px; color: var(--text); outline: none; transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
-    .book-field textarea { min-height: 140px; resize: vertical; }
-    .book-field input:focus, .book-field select:focus, .book-field textarea:focus { border-color: rgba(66,144,192,.55); box-shadow: 0 0 0 4px rgba(66,144,192,.08); }
-    .submit-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
-    .book-msg { font-size: 14px; color: var(--muted); min-height: 22px; }
-    .book-msg.success { color: #2f7a58; }
-    .book-msg.error { color: #b14735; }
-
-    .contact-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 20px; }
-    .contact-card, .map-card { border-radius: 30px; overflow: hidden; background: rgba(255,255,255,.72); border: 1px solid rgba(66,144,192,.1); box-shadow: var(--shadow-soft); }
+    .book-field { display: grid; gap: 8px; }
+    .book-field label { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--brand-deep); font-weight: 700; }
+    .book-field input, .book-field select, .book-field textarea { width: 100%; border: 1px solid rgba(23,53,75,.12); background: rgba(255,255,255,.76); border-radius: 18px; padding: 15px 16px; color: var(--text); outline: none; }
+    .book-field textarea { min-height: 120px; resize: vertical; }
+    .submit-row { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+    .book-msg { color: var(--brand-deep); font-weight: 700; font-size: 13px; }
+    .contact-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 22px; }
     .contact-card { padding: 36px; }
-    .contact-grid { display: grid; gap: 22px; }
-    .contact-block h4 { font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--brand); margin-bottom: 10px; }
-    .contact-block p, .contact-block a { font-size: 16px; line-height: 1.8; color: var(--text); text-decoration: none; }
-    .contact-block a:hover { color: var(--brand-deep); }
-    .placeholder-link { color: var(--muted) !important; cursor: default; pointer-events: none; }
-    .map-card iframe { width: 100%; height: 100%; min-height: 420px; border: 0; filter: saturate(.92) contrast(1.02); }
-
-    .site-footer { padding: 42px 0 54px; }
-    .footer-shell { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding-top: 26px; border-top: 1px solid rgba(23,53,75,.08); }
-    .footer-brand { display: inline-flex; align-items: center; gap: 14px; }
-    .footer-brand img.icon { width: 34px; }
-    .footer-brand img.wordmark { width: 210px; }
-    .footer-copy { font-size: 12px; line-height: 1.9; color: var(--muted); text-align: center; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
-
-    .lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(243, 238, 229, .92); backdrop-filter: blur(18px); z-index: 90; padding: 30px; }
+    .contact-grid { display: grid; gap: 18px; }
+    .contact-block h4 { color: var(--brand-deep); letter-spacing: .22em; text-transform: uppercase; font-size: 11px; margin-bottom: 8px; }
+    .contact-block p { color: var(--muted); line-height: 1.7; }
+    .map-card iframe { width: 100%; height: 100%; min-height: 460px; border: 0; display: block; }
+    .site-footer { padding: 34px 0; border-top: 1px solid rgba(23,53,75,.08); }
+    .footer-shell { display: flex; justify-content: space-between; gap: 18px; align-items: center; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
+    .footer-brand { display: inline-flex; align-items: center; gap: 12px; }
+    .footer-brand .icon { width: 34px; }
+    .footer-brand .wordmark { width: 190px; }
+    .lightbox { position: fixed; inset: 0; background: rgba(18,36,50,.86); z-index: 200; display: none; align-items: center; justify-content: center; padding: 30px; }
     .lightbox.open { display: flex; }
-    .lightbox img { max-width: min(90vw, 1200px); max-height: 84vh; border-radius: 24px; box-shadow: 0 28px 60px rgba(20,48,71,.18); }
-    .lightbox-close { position: absolute; top: 26px; right: 26px; border: 0; background: rgba(255,255,255,.78); border-radius: 999px; min-height: 48px; padding: 0 18px; cursor: pointer; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--brand-ink); }
-
-    @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* ── Hero subtitle ── */
-    .hero-subtitle {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(11px, 1.15vw, 15px);
-      letter-spacing: .46em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-top: -10px;
-      margin-bottom: 2px;
-      opacity: .9;
-    }
-
-    /* ── Dropdown "I Locali" ── */
-    .nav-dropdown { position: relative; display: flex; align-items: center; }
-    .nav-dropdown-toggle {
-      display: inline-flex; align-items: center; gap: 5px;
-      cursor: pointer; user-select: none;
-    }
-    .nav-dropdown-toggle::after {
-      content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
-      background: var(--brand); transform: scaleX(0); transform-origin: left center;
-      transition: transform .28s ease;
-    }
-    .nav-dropdown:hover .nav-dropdown-toggle::after,
-    .nav-dropdown.open .nav-dropdown-toggle::after { transform: scaleX(1); }
-    .dropdown-arrow { flex-shrink: 0; transition: transform .22s ease; }
-    .nav-dropdown.open .dropdown-arrow,
-    .nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
-    .nav-dropdown-menu {
-      position: absolute; top: 100%; left: 50%;
-      transform: translateX(-50%) translateY(-8px);
-      /* padding-top crea area invisibile che copre il gap — nessuna zona morta */
-      padding-top: 10px;
-      min-width: 220px; width: max-content;
-      opacity: 0; visibility: hidden; pointer-events: none;
-      transition: opacity .22s ease, transform .22s ease, visibility .22s;
-      z-index: 100;
-    }
-    .nav-dropdown-menu-inner {
-      background: rgba(252,250,246,.97); border: 1px solid rgba(23,53,75,.09);
-      border-radius: 20px; box-shadow: 0 18px 44px rgba(20,48,71,.12);
-      padding: 10px;
-    }
-    .nav-dropdown:hover .nav-dropdown-menu,
-    .nav-dropdown.open .nav-dropdown-menu {
-      opacity: 1; visibility: visible; pointer-events: auto;
-      transform: translateX(-50%) translateY(0);
-    }
-    .nav-dropdown-menu a {
-      display: flex; align-items: center; gap: 10px;
-      padding: 11px 15px; border-radius: 13px;
-      text-decoration: none; font-size: 10.5px; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--brand-deep); font-weight: 600;
-      transition: background .16s ease, color .16s ease;
-    }
-    .nav-dropdown-menu a:hover { background: rgba(66,144,192,.09); color: var(--brand); }
-    .dd-dot {
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--accent); flex-shrink: 0;
-    }
-    /* Separator between links */
-    .nav-dropdown-menu a + a { border-top: 1px solid rgba(23,53,75,.06); }
-
-    /* ── Weather pill (in nav-actions) ── */
-    .nav-weather {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 5px 12px 5px 9px; border-radius: 999px;
-      background: rgba(220,235,245,.55); border: 1px solid rgba(66,144,192,.22);
-      font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--brand-deep); white-space: nowrap; cursor: default;
-      transition: background .2s ease;
-    }
-    .nav-weather:hover { background: rgba(220,235,245,.85); }
-    .weather-icon { font-size: 15px; line-height: 1; }
-    .weather-temp { font-weight: 700; font-size: 11px; color: var(--brand-ink); }
-    .weather-label { opacity: .7; }
-
+    .lightbox img { max-height: 86vh; border-radius: 26px; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+    .lightbox-close { position: absolute; top: 22px; right: 22px; border: 0; border-radius: 999px; padding: 12px 18px; background: rgba(255,255,255,.88); color: var(--brand-ink); cursor: pointer; }
     [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
     [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 1120px) {
-      .hero-layout, .story-layout, .booking-layout, .contact-layout { grid-template-columns: 1fr; }
+      .booking-layout, .contact-layout { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: 'a b' 'a c' 'd e' 'f f'; }
       .menu-columns { grid-template-columns: 1fr; }
+      .map-card iframe { min-height: 360px; }
     }
-
     @media (max-width: 920px) {
       section { padding: 88px 0; }
       .site-header { padding: 16px 0; }
       .nav-shell { grid-template-columns: auto auto; justify-content: space-between; padding: 14px 16px; border-radius: 26px; }
       .nav-menu { display: none; position: absolute; top: calc(100% + 12px); left: 0; right: 0; padding: 18px; background: rgba(251,248,242,.96); border: 1px solid rgba(23,53,75,.08); border-radius: 24px; flex-direction: column; box-shadow: var(--shadow); }
       .nav-menu.open { display: flex; }
-      .nav-actions { gap: 8px; }
       .nav-toggle { display: inline-grid; place-items: center; }
-      .nav-actions .button { display: none; }
-      .hero { padding-top: 150px; }
-      .hero::before { background: linear-gradient(180deg, rgba(250,247,241,.92) 0%, rgba(250,247,241,.82) 26%, rgba(250,247,241,.44) 58%, rgba(250,247,241,.18) 100%); }
-      .signature-grid, .material-row { grid-template-columns: 1fr; }
+      .nav-actions .button, .nav-weather { display: none; }
+      .signature-grid { grid-template-columns: 1fr; }
       .book-form-grid { grid-template-columns: 1fr; }
       .container { width: min(calc(100% - 28px), var(--max)); }
     }
-
     @media (max-width: 640px) {
-      .brand-lockup img.wordmark { width: 170px; }
-      .brand-lockup img.icon { width: 32px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-brand { width: 100%; }
+      .hero { padding-top: 140px; min-height: 82svh; }
+      .hero-center-logo { width: 86vw; }
       .button, .button-ghost { width: 100%; }
-      .signature-grid { gap: 12px; }
-      .story-panel, .quote-panel, .booking-info, .booking-form-wrap, .contact-card { padding: 28px 22px; }
       .menu-shell { padding: 20px; border-radius: 28px; }
-      .menu-tabs { width: 100%; justify-content: center; border-radius: 22px; }
-      .gallery-grid { grid-template-columns: 1fr; grid-template-areas: none; }
-      .gallery-card { min-height: 300px; }
+      .menu-tabs { width: 100%; border-radius: 22px; }
+      .menu-tab { padding: 12px 13px; font-size: 10px; letter-spacing: .18em; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-areas: none; grid-auto-rows: 300px; }
       .gallery-card[class] { grid-area: auto; }
-      .footer-shell { justify-content: center; }
+      .booking-info, .booking-form-wrap, .contact-card { padding: 28px 22px; }
+      .footer-shell { justify-content: center; text-align: center; }
       .footer-brand { justify-content: center; width: 100%; }
-      .footer-links { justify-content: center; }
       .lightbox { padding: 18px; }
     }
   </style>
@@ -327,7 +203,6 @@
           <li><a href="#contatti"><span data-it>Contatti</span><span data-en>Contact</span></a></li>
         </ul>
       </nav>
-
       <div class="nav-actions">
         <a class="button" href="#prenota"><span data-it>Prenota</span><span data-en>Reserve</span></a>
         <div class="lang-switch" aria-label="Language switcher">
@@ -373,223 +248,289 @@
       </div>
     </section>
 
-
     <section class="menu-section" id="menu">
       <div class="container">
         <div class="menu-shell" data-reveal>
           <div class="menu-top">
             <div class="section-head" style="margin-bottom:0; text-align:center; justify-items:center;">
-              <p class="section-kicker"><span data-it>La nostra cucina</span><span data-en>Our cuisine</span></p>
+              <p class="section-kicker"><span data-it>Nuova stagione</span><span data-en>New season</span></p>
               <h2 class="section-title" style="max-width:none;"><span data-it>Il <em>Menu</em></span><span data-en>The <em>Menu</em></span></h2>
             </div>
             <div class="menu-tabs" role="tablist" aria-label="Menu categories">
               <button class="menu-tab active" type="button" data-panel="tapas"><span data-it>Tapas</span><span data-en>Tapas</span></button>
-<button class="menu-tab" type="button" data-panel="pasta"><span data-it>Pasta</span><span data-en>Pasta</span></button>
-<button class="menu-tab" type="button" data-panel="secondi"><span data-it>Secondi</span><span data-en>Main Course</span></button>
-<button class="menu-tab" type="button" data-panel="breakfast"><span data-it>Breakfast</span><span data-en>Breakfast</span></button>
+              <button class="menu-tab" type="button" data-panel="antipasti"><span data-it>Antipasti</span><span data-en>Starters</span></button>
+              <button class="menu-tab" type="button" data-panel="primi"><span data-it>Primi</span><span data-en>First Courses</span></button>
+              <button class="menu-tab" type="button" data-panel="secondi"><span data-it>Secondi</span><span data-en>Main Courses</span></button>
+              <button class="menu-tab" type="button" data-panel="insalate"><span data-it>Insalate</span><span data-en>Salads</span></button>
+              <button class="menu-tab" type="button" data-panel="breakfast"><span data-it>Breakfast</span><span data-en>Breakfast</span></button>
+              <button class="menu-tab" type="button" data-panel="bar"><span data-it>Bar & Vini</span><span data-en>Bar & Wines</span></button>
             </div>
           </div>
 
           <div class="menu-panel active" id="panel-tapas" role="tabpanel">
-        <div class="menu-columns"><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Pane e Bruschetta</span><span data-en>Bread &amp; Bruschetta</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Il Nostro Pane e Bruschetta</span><span data-en>Il Nostro Pane e Bruschetta</span></div><div class="menu-item-desc"><span data-it>Focaccia delle sorelle di farina BIO e lievito naturale</span><span data-en>Sourdough sisters&#x27; focaccia with organic flour</span></div></div>
-                <div class="menu-item-price">€12</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Acciughe&quot;</span><span data-en>&quot;Acciughe&quot;</span></div><div class="menu-item-desc"><span data-it>Alici marinate, sale, origano (1,4)</span><span data-en>Marinated anchovies, salt, oregano (1,4)</span></div></div>
-                <div class="menu-item-price">€2.50</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Al Pomodoro&quot;</span><span data-en>&quot;Al Pomodoro&quot;</span></div><div class="menu-item-desc"><span data-it>Pomodori, olio EVO, sale, capperi e basilico (1)</span><span data-en>Tomatoes, EVO oil, salt, capers and basil (1)</span></div></div>
-                <div class="menu-item-price">€3</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Con la Caponata&quot;</span><span data-en>&quot;Con la Caponata&quot;</span></div><div class="menu-item-desc"><span data-it>Caponata siciliana (1)</span><span data-en>Sicilian caponata (1)</span></div></div>
-                <div class="menu-item-price">€3</div>
-              </article></div>
-          </section><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Del Caseificio Ibleo</span><span data-en>Ibleo Dairy Selection</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Del Caseificio Ibleo</span><span data-en>Del Caseificio Ibleo</span></div><div class="menu-item-desc"><span data-it>Focaccia BIO con mozzarelle locali e verdure grigliate</span><span data-en>Organic focaccia with local mozzarella and grilled vegetables</span></div></div>
-                <div class="menu-item-price">€13</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Mozzarella&quot;</span><span data-en>&quot;Mozzarella&quot;</span></div><div class="menu-item-desc"><span data-it>Mozzarella fresca su verdura ripassata (3)</span><span data-en>Fresh mozzarella on sautéed vegetables (3)</span></div></div>
-                <div class="menu-item-price">€3</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Stracciarina&quot;</span><span data-en>&quot;Stracciarina&quot;</span></div><div class="menu-item-desc"><span data-it>Stracciarina e ciliegino confit (3)</span><span data-en>Stracciarina with confit cherry tomato (3)</span></div></div>
-                <div class="menu-item-price">€3</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Caciocavallo&quot;</span><span data-en>&quot;Caciocavallo&quot;</span></div><div class="menu-item-desc"><span data-it>Caciocavallo, confettura e marmellata (1,7,9)</span><span data-en>Caciocavallo, compote and jam (1,7,9)</span></div></div>
-                <div class="menu-item-price">€4</div>
-              </article></div>
-          </section><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Del Macellaio</span><span data-en>From the Butcher</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Del Macellaio</span><span data-en>Del Macellaio</span></div><div class="menu-item-desc"><span data-it>Focaccia BIO con aglio, sale, origano, olio EVO BIO</span><span data-en>Organic focaccia with garlic, salt, oregano, EVO BIO</span></div></div>
-                <div class="menu-item-price">€13</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Vitàl Tonnè&quot;</span><span data-en>&quot;Vitàl Tonnè&quot;</span></div><div class="menu-item-desc"><span data-it>Vitello, tonno, uova, acciughe, capperi (1,2,3,4,12)</span><span data-en>Veal, tuna, eggs, anchovies, capers (1,2,3,4,12)</span></div></div>
-                <div class="menu-item-price">€4</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Salsiccia &amp; Erbe di Campo&quot;</span><span data-en>&quot;Salsiccia &amp; Erbe di Campo&quot;</span></div><div class="menu-item-desc"><span data-it>Salsiccia piccante con nèpita (1)</span><span data-en>Spicy sausage with Sicilian herbs (1)</span></div></div>
-                <div class="menu-item-price">€3</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Arancinetto al Ragù&quot;</span><span data-en>&quot;Arancinetto al Ragù&quot;</span></div><div class="menu-item-desc"><span data-it>Riso, macinato di manzo e maiale, piselli, caciocavallo (1,7,9,11)</span><span data-en>Rice, minced beef and pork, peas, caciocavallo (1,7,9,11)</span></div></div>
-                <div class="menu-item-price">€3</div>
-              </article></div>
-          </section><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Dell&#x27;Orto</span><span data-en>From the Garden</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Dell&#x27;Orto</span><span data-en>Dell&#x27;Orto</span></div><div class="menu-item-desc"><span data-it>Focaccia BIO con aglio, sale, origano EVO BIO</span><span data-en>Organic focaccia with garlic, salt, oregano EVO BIO</span></div></div>
-                <div class="menu-item-price">€14</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Patata Fritta, Cacio, Pepe e Limone&quot;</span><span data-en>&quot;Patata Fritta, Cacio, Pepe e Limone&quot;</span></div><div class="menu-item-desc"><span data-it>Patate fritte con caciocavallo grattugiato</span><span data-en>Fried potatoes with grated caciocavallo</span></div></div>
-                <div class="menu-item-price">€3</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Carote in Salsa Verde&quot;</span><span data-en>&quot;Carote in Salsa Verde&quot;</span></div><div class="menu-item-desc"><span data-it>Carote, patate, aglio, prezzemolo, menta, aceto, erba cipollina e scalogno</span><span data-en>Carrots, potatoes, garlic, parsley, mint, vinegar, chives and shallots</span></div></div>
-                <div class="menu-item-price">€4</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>I Fritti e la Senape di Dijon</span><span data-en>I Fritti e la Senape di Dijon</span></div><div class="menu-item-desc"><span data-it>Assortimento fritto con senape all&#x27;antica (1,3,4,9)</span><span data-en>Assorted fried selections with old-style mustard (1,3,4,9)</span></div></div>
-                <div class="menu-item-price">€19</div>
-              </article></div>
-          </section><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Dal Mare in Insalata</span><span data-en>From the Sea</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Dal Mare in Insalata</span><span data-en>Dal Mare in Insalata</span></div><div class="menu-item-desc"><span data-it>Con focaccia delle sorelle BIO, pesce locale e lievito naturale</span><span data-en>With organic sourdough focaccia and local fish</span></div></div>
-                <div class="menu-item-price">€18</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Cocktail di Gamberi di Mazara&quot;</span><span data-en>&quot;Cocktail di Gamberi di Mazara&quot;</span></div><div class="menu-item-desc"><span data-it>Gamberi di Mazara con julienne di lattuga e salsa rosa (1,2,3,9)</span><span data-en>Mazara prawns with lettuce julienne and house pink sauce (1,2,3,9)</span></div></div>
-                <div class="menu-item-price">€5</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;La Caesar di Tonno&quot;</span><span data-en>&quot;La Caesar di Tonno&quot;</span></div><div class="menu-item-desc"><span data-it>Tonno crudo locale con salsa caesar (1,2,3,4,5)</span><span data-en>Fresh local tuna with caesar dressing (1,2,3,4,5)</span></div></div>
-                <div class="menu-item-price">€5</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>&quot;Polpo&quot; e Guacamole</span><span data-en>&quot;Polpo&quot; e Guacamole</span></div><div class="menu-item-desc"><span data-it>Polpo, avocado, cipolla, pomodoro, lime (1,2)</span><span data-en>Octopus, avocado, onion, tomato, lime (1,2)</span></div></div>
-                <div class="menu-item-price">€6</div>
-              </article></div>
-          </section><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Tagliere</span><span data-en>Sharing Board</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tagliere di Salumi e Formaggi</span><span data-en>Cured Meats &amp; Cheese Board</span></div><div class="menu-item-desc"><span data-it>Selezione di salumi e formaggi siciliani con focaccia della casa</span><span data-en>Selection of Sicilian cured meats and cheeses with house focaccia</span></div></div>
-                <div class="menu-item-price">€24</div>
-              </article></div>
-          </section></div>
-      </div>
-<div class="menu-panel" id="panel-pasta" role="tabpanel">
-        <div class="menu-columns"><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Pasta Homemade</span><span data-en>Homemade Pasta</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>La &quot;Norma&quot;</span><span data-en>La &quot;Norma&quot;</span></div><div class="menu-item-desc"><span data-it>Maccheroncini, melanzane, pomodoro, basilico e ricotta salata (1,3,9)</span><span data-en>Maccheroncini, aubergine, tomato, basil and salted ricotta (1,3,9)</span></div></div>
-                <div class="menu-item-price">€18</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Eliche Pistacchio, Basilico e Burrata</span><span data-en>Eliche Pistacchio, Basilico e Burrata</span></div><div class="menu-item-desc"><span data-it>Pistacchio, burrata e basilico (1,7,8)</span><span data-en>Pistachio, burrata and basil (1,7,8)</span></div></div>
-                <div class="menu-item-price">€21</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Sedanino al Ragù di Gallina e Zafferano</span><span data-en>Sedanino al Ragù di Gallina e Zafferano</span></div><div class="menu-item-desc"><span data-it>Carota, sedano, cipolla, gallina, vino bianco, burro, zafferano (1,3,7,4,12)</span><span data-en>Carrot, celery, onion, chicken, white wine, butter, saffron (1,3,7,4,12)</span></div></div>
-                <div class="menu-item-price">€22</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Lasagna di Cernia</span><span data-en>Lasagna di Cernia</span></div><div class="menu-item-desc"><span data-it>Cernia, sedano, cipolla, erbe aromatiche, besciamella, grana (1,3,7,9,12)</span><span data-en>Grouper, onion, celery, fresh herbs, béchamel, grana (1,3,7,9,12)</span></div></div>
-                <div class="menu-item-price">€21</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Spaghetti alla Siracusana</span><span data-en>Spaghetti alla Siracusana</span></div><div class="menu-item-desc"><span data-it>Acciughe, pangrattato tostato, pomodorini secchi, uvette e caciocavallo (2,4,9)</span><span data-en>Anchovies, toasted breadcrumbs, dried tomatoes, raisins and caciocavallo (2,4,9)</span></div></div>
-                <div class="menu-item-price">€19</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tagliatella Cacio, Pepe e Gambero Rosso</span><span data-en>Tagliatella Cacio, Pepe e Gambero Rosso</span></div><div class="menu-item-desc"><span data-it>Pecorino, pepe, gambero rosso e zeste di limone (1,2,3,7)</span><span data-en>Pecorino, pepper, red shrimp and lemon zest (1,2,3,7)</span></div></div>
-                <div class="menu-item-price">€24</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Chicce di Patate allo Scoglio</span><span data-en>Chicce di Patate allo Scoglio</span></div><div class="menu-item-desc"><span data-it>Frutti di mare, vongole, gamberi, cipolla, vino bianco, prezzemolo, pomodoro (1,2,4,12,14)</span><span data-en>Seafood, clams, shrimp, onion, white wine, parsley, tomato (1,2,4,12,14)</span></div></div>
-                <div class="menu-item-price">€26</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Cous Cous di Cernia</span><span data-en>Cous Cous di Cernia</span></div><div class="menu-item-desc"><span data-it>Cernia, cipolla, pomodoro, peperoncino, vino bianco e spezie (1,4,9,12)</span><span data-en>Grouper, onion, tomato, chili, white wine and spices (1,4,9,12)</span></div></div>
-                <div class="menu-item-price">€26</div>
-              </article></div>
-          </section></div>
-      </div>
-<div class="menu-panel" id="panel-secondi" role="tabpanel">
-        <div class="menu-columns"><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Secondi Piatti</span><span data-en>Main Courses</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Melanzana 2.0</span><span data-en>Melanzana 2.0</span></div><div class="menu-item-desc"><span data-it>Melanzana, pomodoro rosso e giallo, parmigiano reggiano, basilico (7)</span><span data-en>Aubergine, red and yellow tomato, parmigiano reggiano, basil (7)</span></div></div>
-                <div class="menu-item-price">€18</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Arcobaleno di Carote al Forno in Salsa Verde</span><span data-en>Arcobaleno di Carote al Forno in Salsa Verde</span></div><div class="menu-item-desc"><span data-it>Carote, patate, aglio, prezzemolo, menta, erba cipollina, scalogno, aceto di vino rosso, limone (7)</span><span data-en>Carrots, potatoes, garlic, parsley, mint, chives, shallot, red wine vinegar, lemon (7)</span></div></div>
-                <div class="menu-item-price">€18</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tagliata di Manzo alla Brace</span><span data-en>Tagliata di Manzo alla Brace</span></div><div class="menu-item-desc"><span data-it>Controfiletto di vitello, grana stagionatura 20 mesi, pomodorini (7,9)</span><span data-en>Veal sirloin, 20-month aged grana, cherry tomato</span></div></div>
-                <div class="menu-item-price">€27</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Cotoletta &quot;Orecchio di Elefante&quot;</span><span data-en>Cotoletta &quot;Orecchio di Elefante&quot;</span></div><div class="menu-item-desc"><span data-it>Costata di vitello, pangrattato, uova, patate fresche fritte (1,3,9,14)</span><span data-en>Veal rib, breadcrumbs, eggs, fresh french fries (1,3,9,14)</span></div></div>
-                <div class="menu-item-price">€24</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tataki di Tonno in Crosta</span><span data-en>Tataki di Tonno in Crosta</span></div><div class="menu-item-desc"><span data-it>Tonno*, cipolla in agrodolce e peperoni alla brace (1,2,3,4,9)</span><span data-en>Tuna*, sweet and sour onion and grilled peppers (1,2,3,4,9)</span></div></div>
-                <div class="menu-item-price">€25</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Frittura Croccante di Calamari, Gamberi e Verdure</span><span data-en>Frittura Croccante di Calamari, Gamberi e Verdure</span></div><div class="menu-item-desc"><span data-it>Con maionese di Dijon all&#x27;arancia (1,2,3,9)</span><span data-en>With orange Dijon mayonnaise (1,2,3,9)</span></div></div>
-                <div class="menu-item-price">€24</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Dentice alla Brace con Carpaccio di Finocchio</span><span data-en>Dentice alla Brace con Carpaccio di Finocchio</span></div><div class="menu-item-desc"><span data-it>Dentice, finocchio, limone, menta (2)</span><span data-en>Red snapper, fennel, lemon, mint (2)</span></div></div>
-                <div class="menu-item-price">€26</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Pescato Locale alla Brace</span><span data-en>Local Catch on the Grill</span></div><div class="menu-item-desc"><span data-it>Pesce fresco locale del giorno</span><span data-en>Today&#x27;s fresh local catch</span></div></div>
-                <div class="menu-item-price">€7/100g</div>
-              </article></div>
-          </section><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Contorni</span><span data-en>Side Dishes</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Ciliegino e Ricotta Salata</span><span data-en>Cherry Tomato &amp; Salted Ricotta</span></div></div>
-                <div class="menu-item-price">€4</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Patate Fresche Fritte</span><span data-en>Fresh French Fries</span></div></div>
-                <div class="menu-item-price">€4</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Finocchio e Limone</span><span data-en>Fennel &amp; Lemon</span></div></div>
-                <div class="menu-item-price">€5</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Crema di Patate in Salsa Verde</span><span data-en>Potato Cream in Green Sauce</span></div></div>
-                <div class="menu-item-price">€4</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Verdure Grigliate</span><span data-en>Grilled Vegetables</span></div></div>
-                <div class="menu-item-price">€7</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Peperoni alla Brace</span><span data-en>Grilled Peppers</span></div></div>
-                <div class="menu-item-price">€5</div>
-              </article></div>
-          </section></div>
-      </div>
-<div class="menu-panel" id="panel-breakfast" role="tabpanel">
-        <div class="menu-columns"><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Breakfast</span><span data-en>Breakfast</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Salmon Breakfast</span><span data-en>Salmon Breakfast</span></div><div class="menu-item-desc"><span data-it>Crostoni di pane, salmone, formaggio fresco spalmabile, rucola (1,3,4)</span><span data-en>Bread croutons, salmon, cream cheese, rocket (1,3,4)</span></div></div>
-                <div class="menu-item-price">€13</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Benedict Eggs</span><span data-en>Benedict Eggs</span></div><div class="menu-item-desc"><span data-it>Uova in camicia, pane tostato, guanciale, salsa olandese, verdure saltate (1,3)</span><span data-en>Poached eggs, toast, cheek black pork, hollandaise sauce, sautéed vegetables (1,3)</span></div></div>
-                <div class="menu-item-price">€9</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Vegetarian Breakfast</span><span data-en>Vegetarian Breakfast</span></div><div class="menu-item-desc"><span data-it>Uova sode, avocado, lattuga, pomodori, salsa yogurt, patate fritte (1,3)</span><span data-en>Hard boiled eggs, avocado, lettuce, tomatoes, yogurt sauce, french fries (1,3)</span></div></div>
-                <div class="menu-item-price">€9</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>English Full Breakfast</span><span data-en>English Full Breakfast</span></div><div class="menu-item-desc"><span data-it>Uova strapazzate, bacon, salsiccia, verdure grigliate (1,3)</span><span data-en>Scrambled eggs, bacon, sausage, grilled vegetables (1,3)</span></div></div>
-                <div class="menu-item-price">€10</div>
-              </article></div>
-          </section><section class="menu-category-card">
-            <h3 class="menu-category-title"><span data-it>Dolci &amp; Altro</span><span data-en>Sweet &amp; More</span></h3>
-            <div class="menu-item-list"><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Pancake</span><span data-en>Pancake</span></div><div class="menu-item-desc"><span data-it>Sciroppo d&#x27;acero e frutti rossi (1,3)</span><span data-en>Maple syrup and red fruits (1,3)</span></div></div>
-                <div class="menu-item-price">€8</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Crepes</span><span data-en>Crepes</span></div><div class="menu-item-desc"><span data-it>Con nutella e pistacchio (1,3)</span><span data-en>With nutella and pistachio (1,3)</span></div></div>
-                <div class="menu-item-price">€8</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Italiana</span><span data-en>Italiana</span></div><div class="menu-item-desc"><span data-it>Cornetto caldo, marmellata di arancia, yogurt, cereali e frutta fresca di stagione</span><span data-en>Warm croissant, orange jam, yogurt, cereals and fresh seasonal fruit</span></div></div>
-                <div class="menu-item-price">€9</div>
-              </article><article class="menu-item-card">
-                <div class="menu-item-copy"><div class="menu-item-name"><span data-it>Club Sandwich</span><span data-en>Club Sandwich</span></div><div class="menu-item-desc"><span data-it>Pane tostato con pollo, guanciale, lattuga, pomodori, maionese alla senape di Dijon, patate fritte</span><span data-en>Toasted bread with chicken, bacon, lettuce, cherry tomatoes, Dijon mustard mayo, french fries</span></div></div>
-                <div class="menu-item-price">€10</div>
-              </article></div>
-          </section></div>
-      </div>
+            <div class="menu-columns">
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Il nostro pane a bruschetta</span><span data-en>Our Bruschetta Bread</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Il nostro pane a bruschetta</span><span data-en>Our bruschetta bread</span></div><div class="menu-item-desc"><span data-it>Servito con mozzarella artigianale del caseificio ibleo di Palazzolo</span><span data-en>Served with artisanal mozzarella from the Ibleo dairy in Palazzolo</span></div></div><div class="menu-item-price">€12</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Acciughe”</div><div class="menu-item-desc"><span data-it>Aglio, olio, sale, origano, acciughe (1,4)</span><span data-en>Garlic, oil, salt, oregano, anchovies (1,4)</span></div></div><div class="menu-item-price">€2.50</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Al pomodoro”</div><div class="menu-item-desc"><span data-it>Pomodoro, olio, sale, capperi e basilico (1)</span><span data-en>Tomato, oil, salt, capers and basil (1)</span></div></div><div class="menu-item-price">€3</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Con la caponata”</div><div class="menu-item-desc"><span data-it>Con caponata di verdure (1,9)</span><span data-en>With vegetable caponata (1,9)</span></div></div><div class="menu-item-price">€3</div></article>
+                </div>
+              </section>
 
-          <p class="menu-note"><span data-it>* Il piatto contiene ingredienti che hanno subito un processo di abbattimento. Servizio incluso.</span><span data-en>* The dish contains ingredients that have undergone a blast-chilling process. Service included.</span></p>
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Del caseificio ibleo</span><span data-en>Ibleo Dairy Selection</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Del caseificio ibleo</span><span data-en>Ibleo dairy selection</span></div><div class="menu-item-desc"><span data-it>Con focaccina delle Sorelle di farina BIO e lievito naturale</span><span data-en>With organic flour and natural yeast Sorelle focaccia</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Mozzarella”</div><div class="menu-item-desc"><span data-it>Mozzarella fresca servita su verdura ripassata (7)</span><span data-en>Fresh mozzarella served on sautéed vegetables (7)</span></div></div><div class="menu-item-price">€3</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Stracciatella”</div><div class="menu-item-desc"><span data-it>Stracciatella e ciliegino confit (7)</span><span data-en>Stracciatella cheese and confit cherry tomato (7)</span></div></div><div class="menu-item-price">€3</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Caciocavallo”</div><div class="menu-item-desc"><span data-it>Caciocavallo, confettura di pere e noci (7,8)</span><span data-en>Caciocavallo cheese, pear and walnut jam (7,8)</span></div></div><div class="menu-item-price">€3</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Del macellaio</span><span data-en>From the Butcher</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Del macellaio</span><span data-en>From the butcher</span></div><div class="menu-item-desc"><span data-it>Con focaccina delle Sorelle, aglio, sale, origano e olio EVO BIO</span><span data-en>With Sorelle focaccia, garlic, salt, oregano and organic EVO oil</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Bracioline”</div><div class="menu-item-desc"><span data-it>Vitello, formaggio (3,4,9,12)</span><span data-en>Veal, cheese (3,4,9,12)</span></div></div><div class="menu-item-price">€4</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Salsiccia & erbe di campo”</div><div class="menu-item-desc"><span data-it>Salsiccia di maiale speziata con sinapa (3,12)</span><span data-en>Spiced pork sausage with wild field herbs (3,12)</span></div></div><div class="menu-item-price">€3</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Arancinetto al ragù”</div><div class="menu-item-desc"><span data-it>Riso, macinato di manzo e suino, sedano, carota, cipolla, zafferano, caciocavallo (1,7,9,12)</span><span data-en>Rice, minced beef and pork, celery, carrot, onion, saffron, caciocavallo cheese (1,7,9,12)</span></div></div><div class="menu-item-price">€3</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Dell’orto</span><span data-en>From the Garden</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Dell’orto</span><span data-en>From the garden</span></div><div class="menu-item-desc"><span data-it>Con focaccina delle Sorelle di farina BIO e lievito naturale</span><span data-en>With organic flour and natural yeast Sorelle focaccia</span></div></div><div class="menu-item-price">€14</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Patata fresca fritta, caciocavallo, pepe e limone”</div><div class="menu-item-desc"><span data-it>Patate fresche fritte con caciocavallo grattugiato profumate al limone (7)</span><span data-en>Fresh french fries with grated caciocavallo, flavoured with lemon (7)</span></div></div><div class="menu-item-price">€3</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Caponata”</div><div class="menu-item-desc"><span data-it>Con caponata di verdure (1,9)</span><span data-en>With vegetable caponata (1,9)</span></div></div><div class="menu-item-price">€3</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Verdure in pastella”</div><div class="menu-item-desc"><span data-it>Carote, zucchine e cipolla in pastella di farina tipo 0 BIO e birra siciliana artigianale ALVERIA (1)</span><span data-en>Carrots, zucchini and onion in organic type 0 flour batter and Sicilian craft beer ALVERIA (1)</span></div></div><div class="menu-item-price">€4</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Insalata di pomodoro e ricotta salata”</div><div class="menu-item-desc"><span data-it>Pomodoro, capperi, olive, cipolla rossa, ricotta salata, olio EVO BIO, sale, basilico (7)</span><span data-en>Tomato, capers, olives, red onion, salted ricotta, organic EVO oil, salt, basil (7)</span></div></div><div class="menu-item-price">€3</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Insalata siciliana”</div><div class="menu-item-desc"><span data-it>Arancia, capperi, olive nere, cipolla rossa, pepe nero, olio EVO</span><span data-en>Orange, capers, black olives, red onion, black pepper, EVO oil</span></div></div><div class="menu-item-price">€3</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Peperoni alla brace”</div><div class="menu-item-desc"><span data-it>Peperoni cotti sul carbone</span><span data-en>Peppers cooked on charcoal</span></div></div><div class="menu-item-price">€4</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>I fritti e la senape di Dijon</span><span data-en>Fried Selection & Dijon Mustard</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>I fritti e la senape di Dijon</span><span data-en>Fried selection & Dijon mustard</span></div><div class="menu-item-desc"><span data-it>Con insalata condita con citronette</span><span data-en>With salad seasoned with citronette</span></div></div><div class="menu-item-price">€19</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Baccalà in pastella”</div><div class="menu-item-desc"><span data-it>Con maionese alla senape Dijon all’antica (1,3,4)</span><span data-en>With old-fashioned Dijon mustard mayonnaise (1,3,4)</span></div></div><div class="menu-item-price">€5</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Il calamaro ed il gambero”</div><div class="menu-item-desc"><span data-it>Calamari, gamberi rossi di Mazara e zucchine in semola siciliana con salsa senape, miele e limone (1,2,14)</span><span data-en>Squid, Mazara red prawns and zucchini in Sicilian semolina with mustard, honey and lemon sauce (1,2,14)</span></div></div><div class="menu-item-price">€5</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Polpette croccanti di pesce”</div><div class="menu-item-desc"><span data-it>Polpette croccanti di pesce (1,3,4,7)</span><span data-en>Crispy fishballs (1,3,4,7)</span></div></div><div class="menu-item-price">€5</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Dal mare in insalata</span><span data-en>From the Sea</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Dal mare in insalata</span><span data-en>From the sea</span></div><div class="menu-item-desc"><span data-it>Con focaccina delle Sorelle di farina BIO e lievito naturale</span><span data-en>With organic flour and natural yeast Sorelle focaccia</span></div></div><div class="menu-item-price">€18</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Cocktail di gamberi di Mazara”</div><div class="menu-item-desc"><span data-it>Gamberi rossi di Mazara scottati con julienne di lattuga e salsa rosa delle Sorelle (2,3)</span><span data-en>Seared Mazara red prawns with lettuce julienne and homemade pink sauce (2,3)</span></div></div><div class="menu-item-price">€5</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“La Caesar di tonno”</div><div class="menu-item-desc"><span data-it>Tonno scottato, julienne di lattuga, scaglie di grana e salsa caesar con senape di Dijon (3,4,7)</span><span data-en>Seared tuna, lettuce julienne, parmesan flakes and Caesar sauce with Dijon mustard (3,4,7)</span></div></div><div class="menu-item-price">€5</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">“Polpo e guacamole”</div><div class="menu-item-desc"><span data-it>Polpo, avocado, cipolla, pomodorino, limone (7,14)</span><span data-en>Octopus, avocado, onion, cherry tomato, lemon (7,14)</span></div></div><div class="menu-item-price">€5</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Tagliere, crudi e fritti homemade</span><span data-en>Boards, Raw Seafood & Homemade Fried Bites</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tagliere di salumi e formaggi</span><span data-en>Cured meats and cheeses board</span></div><div class="menu-item-desc"><span data-it>Selezione di salumi e formaggi siciliani con focaccia della casa (1,7)</span><span data-en>Selection of Sicilian cured meats and cheeses with house focaccia (1,7)</span></div></div><div class="menu-item-price">€24</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>I fritti della nonna homemade</span><span data-en>Grandma’s homemade fried bites</span></div><div class="menu-item-desc"><span data-it>Crocchetta di patate, panella, mozzarellina croccante</span><span data-en>Potato croquette, chickpea fritter, crispy mini mozzarella</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>I crudi</span><span data-en>Raw seafood</span></div><div class="menu-item-desc"><span data-it>Gambero locale e stracciatella, tartare di tonno e avocado, carpaccio di pescato e frutta</span><span data-en>Local shrimp and stracciatella, tuna tartare and avocado, fish carpaccio and fruit</span></div></div><div class="menu-item-price">€19</div></article>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="menu-panel" id="panel-antipasti" role="tabpanel">
+            <div class="menu-columns">
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Antipasti di mare</span><span data-en>Seafood Starters</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Polpo scottato</span><span data-en>Seared octopus</span></div><div class="menu-item-desc"><span data-it>Polpo, crema di patate, cipolla rossa in agrodolce, olio al prezzemolo (12,14)</span><span data-en>Octopus, potato cream, sweet-and-sour red onion, parsley oil (12,14)</span></div></div><div class="menu-item-price">€16</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata di mare in vinaigrette agli agrumi di Sicilia</span><span data-en>Seafood salad with Sicilian citrus vinaigrette</span></div><div class="menu-item-desc"><span data-it>Calamari, gamberi, cozze, vongole, finocchio a julienne, arancia, agrumi, aceto, olio EVO (2,4,14)</span><span data-en>Squid, prawns, mussels, clams, julienned fennel, orange, citrus, vinegar, EVO oil (2,4,14)</span></div></div><div class="menu-item-price">€21</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Cocktail di gamberi locali</span><span data-en>Local prawn cocktail</span></div><div class="menu-item-desc"><span data-it>Gambero locale, lattuga, salsa rosa (2,3,12)</span><span data-en>Local prawns, lettuce, Marie Rose sauce (2,3,12)</span></div></div><div class="menu-item-price">€18</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Pepata di cozze o zuppa in crosta di pane</span><span data-en>Mussels in a bread crust</span></div><div class="menu-item-desc"><span data-it>Cozze, pomodoro, spezie, olio EVO (1,12,14)</span><span data-en>Mussels, tomato, spices, EVO oil (1,12,14)</span></div></div><div class="menu-item-price">€18</div></article>
+                </div>
+              </section>
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Crudi di mare</span><span data-en>Raw Seafood</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Ostriche</span><span data-en>Oysters</span></div><div class="menu-item-desc"><span data-it>5 pezzi (2)</span><span data-en>5 pieces (2)</span></div></div><div class="menu-item-price">€22</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tartare di tonno</span><span data-en>Tuna tartare</span></div><div class="menu-item-desc"><span data-it>Tonno fresco, avocado, salsa di soia, lime, olio EVO, sale, pepe, chips di mais (4)</span><span data-en>Fresh tuna, avocado, soy sauce, lime, EVO oil, salt, pepper, corn chips (4)</span></div></div><div class="menu-item-price">€17</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Carpaccio di pescato locale e frutta</span><span data-en>Local catch carpaccio with fresh fruit</span></div><div class="menu-item-desc"><span data-it>Pescato locale e frutta fresca (4)</span><span data-en>Local catch and fresh fruit (4)</span></div></div><div class="menu-item-price">€18</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Mix di crudi e frutta</span><span data-en>Raw seafood and fruit platter</span></div><div class="menu-item-desc"><span data-it>Gambero e scampo locale, tonno a tartare, carpaccio di pescato, ostrica (2,4,14)</span><span data-en>Local prawn and langoustine, tuna tartare, catch carpaccio, oyster (2,4,14)</span></div></div><div class="menu-item-price">€38</div></article>
+                </div>
+              </section>
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Antipasti di terra</span><span data-en>Land Starters</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Crudo e melone</span><span data-en>Prosciutto & melon</span></div><div class="menu-item-desc"><span data-it>Prosciutto crudo, melone, 4 foglie, riduzione balsamica</span><span data-en>Cured ham, melon, baby leaf salad, balsamic reduction</span></div></div><div class="menu-item-price">€15</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Caponata siciliana</span><span data-en>Sicilian caponata</span></div><div class="menu-item-desc"><span data-it>Melanzane, sedano, cipolla, olive, capperi, pomodoro, aceto (9,12)</span><span data-en>Eggplant, celery, onion, olives, capers, tomato, vinegar (9,12)</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Parmigiana bianca di zucchine</span><span data-en>White zucchini parmigiana</span></div><div class="menu-item-desc"><span data-it>Zucchine, mozzarella, parmigiano, basilico (7)</span><span data-en>Zucchini, mozzarella, parmesan cheese, basil (7)</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata siciliana</span><span data-en>Sicilian orange salad</span></div><div class="menu-item-desc"><span data-it>Arance, finocchio, olive, cipolla rossa, olio EVO</span><span data-en>Oranges, fennel, olives, red onion, EVO oil</span></div></div><div class="menu-item-price">€13</div></article>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="menu-panel" id="panel-primi" role="tabpanel">
+            <div class="menu-columns">
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Primi piatti di pasta fresca artigianale</span><span data-en>Fresh Handmade Pasta</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tagliolini ai carciofi e frutti di mare</span><span data-en>Artichokes seafood tagliolini</span></div><div class="menu-item-desc"><span data-it>Tagliolini, cozze, vongole, gamberi, carciofi, olio EVO (1,2,14)</span><span data-en>Tagliolini pasta, mussels, clams, prawns, artichokes, EVO oil (1,2,14)</span></div></div><div class="menu-item-price">€26</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Busiate al pesto trapanese</span><span data-en>Trapanese pesto busiate</span></div><div class="menu-item-desc"><span data-it>Busiate, pomodoro, mandorle, basilico, pecorino (1,7,8)</span><span data-en>Busiate pasta, tomato, almonds, basil, pecorino cheese (1,7,8)</span></div></div><div class="menu-item-price">€18</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Mezzelune di melanzane alla Norma</span><span data-en>Norma pasta</span></div><div class="menu-item-desc"><span data-it>Pasta, melanzane, pomodoro, basilico, ricotta salata (1,7)</span><span data-en>Pasta, eggplant, tomato, basil, salted ricotta cheese (1,7)</span></div></div><div class="menu-item-price">€18</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Paccheri vongole, bieta e pomodoro</span><span data-en>Paccheri with clams, chard & tomato</span></div><div class="menu-item-desc"><span data-it>Paccheri, vongole, bieta, pomodoro (1,14)</span><span data-en>Paccheri pasta, clams, chard, tomato (1,14)</span></div></div><div class="menu-item-price">€26</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Ravioloni di pesce alle erbette di campo</span><span data-en>Fish-stuffed ravioloni with wild field herbs</span></div><div class="menu-item-desc"><span data-it>Ravioli, ricotta, limone, olio EVO, erbette di campo e spezie (1,3,7)</span><span data-en>Ravioli pasta, ricotta cheese, lemon, EVO oil, wild field herbs and spices (1,3,7)</span></div></div><div class="menu-item-price">€28</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Ravioli al sugo di maiale e salsiccia</span><span data-en>Ravioli with pork & sausage ragù</span></div><div class="menu-item-desc"><span data-it>Ravioli, maiale, salsiccia, pomodoro, basilico, ricotta salata (1,3,7)</span><span data-en>Ravioli pasta, pork, sausage, tomato, basil, salted ricotta cheese (1,3,7)</span></div></div><div class="menu-item-price">€21</div></article>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="menu-panel" id="panel-secondi" role="tabpanel">
+            <div class="menu-columns">
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Secondi di pesce</span><span data-en>Fish Main Courses</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tonno in crosta di panko</span><span data-en>Panko-crusted tuna</span></div><div class="menu-item-desc"><span data-it>Tonno, panko, salsa di soia, caponata (1,4,6,9)</span><span data-en>Tuna, panko, soy sauce, caponata (1,4,6,9)</span></div></div><div class="menu-item-price">€24</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Pesce spada finocchio e limone</span><span data-en>Swordfish with fennel & lemon</span></div><div class="menu-item-desc"><span data-it>Pesce spada, finocchio, limone, olio EVO (4)</span><span data-en>Swordfish, fennel, lemon, EVO oil (4)</span></div></div><div class="menu-item-price">€22</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Pesce del giorno alla griglia</span><span data-en>Grilled fish of the day</span></div><div class="menu-item-desc"><span data-it>Pesce fresco, limone, olio EVO (4)</span><span data-en>Fresh fish, lemon, EVO oil (4)</span></div></div><div class="menu-item-price">S.Q. 80/kg</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Pesce del giorno alla matalotta</span><span data-en>Fish of the day “matalotta” style</span></div><div class="menu-item-desc"><span data-it>Ciliegino, aglio, spezie, olio EVO (4)</span><span data-en>Cherry tomato, garlic, spices, EVO oil (4)</span></div></div><div class="menu-item-price">S.Q. 80/kg</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Pesce del giorno in guazzetto di verdure</span><span data-en>Fish of the day in a light vegetable broth</span></div><div class="menu-item-desc"><span data-it>Cipolla, finocchio, spezie e olio EVO (4)</span><span data-en>Onion, fennel, spices and EVO oil (4)</span></div></div><div class="menu-item-price">S.Q. 80/kg</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Frittura siciliana mista</span><span data-en>Sicilian mixed fried seafood</span></div><div class="menu-item-desc"><span data-it>Calamari, gamberi, farina di semola, mollica, limone (1,2,14)</span><span data-en>Squid, prawns, semolina flour, breadcrumbs, lemon (1,2,14)</span></div></div><div class="menu-item-price">€26</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Secondi di carne</span><span data-en>Meat Main Courses</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Bracioline messinesi</span><span data-en>Messina-style beef rolls</span></div><div class="menu-item-desc"><span data-it>Manzo, pangrattato, grana, prezzemolo (1,7)</span><span data-en>Beef, breadcrumbs, grana cheese, parsley (1,7)</span></div></div><div class="menu-item-price">€21</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Salsiccia grigliata con patate al forno</span><span data-en>Grilled sausage with roasted potatoes</span></div><div class="menu-item-desc"><span data-it>Salsiccia, patate al forno, zucchero, pane tostato (1)</span><span data-en>Sausage, roasted potatoes, sugar, toasted bread (1)</span></div></div><div class="menu-item-price">€18</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tagliata di manzo</span><span data-en>Sliced beef with arugula</span></div><div class="menu-item-desc"><span data-it>Manzo, rucola, grana, riduzione al vino rosso (7,12)</span><span data-en>Beef, arugula, grana cheese, red wine reduction (7,12)</span></div></div><div class="menu-item-price">€26</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Filetto di vitello</span><span data-en>Veal fillet with mushrooms cream</span></div><div class="menu-item-desc"><span data-it>Vitello, funghi, panna, patate (7)</span><span data-en>Veal, mushrooms, cream, potatoes (7)</span></div></div><div class="menu-item-price">€31</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Maiale e salsiccia al sugo</span><span data-en>Pork & sausage stew</span></div><div class="menu-item-desc"><span data-it>Maiale, salsiccia, pomodoro, sedano, cipolla, carota (9)</span><span data-en>Pork, sausage, tomato, celery, onion, carrot (9)</span></div></div><div class="menu-item-price">€18</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Pollo croccante alla siciliana</span><span data-en>Sicilian-style crispy chicken</span></div><div class="menu-item-desc"><span data-it>Pollo croccante, panatura alle erbe, limone, capperi, olio EVO (1)</span><span data-en>Crispy chicken, herb breading, lemon, capers, EVO oil (1)</span></div></div><div class="menu-item-price">€16</div></article>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="menu-panel" id="panel-insalate" role="tabpanel">
+            <div class="menu-columns">
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Insalate</span><span data-en>Salads</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata siciliana</span><span data-en>Sicilian orange salad</span></div><div class="menu-item-desc"><span data-it>Arance, finocchio, olive, cipolla rossa, olio EVO</span><span data-en>Oranges, fennel, olives, red onion, EVO oil</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata catanese</span><span data-en>Catanese salad</span></div><div class="menu-item-desc"><span data-it>Pomodoro, cipolla, capperi, olive, ricotta salata (7)</span><span data-en>Tomato, onion, capers, olives, salted ricotta cheese (7)</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata mista</span><span data-en>Mixed salad</span></div><div class="menu-item-desc"><span data-it>Lattuga, pomodoro, carote, cipolla</span><span data-en>Lettuce, tomato, carrots, onion</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata mediterranea</span><span data-en>Mediterranean salad</span></div><div class="menu-item-desc"><span data-it>Lattuga, pomodoro, cetriolo, olive, cipolla rossa, origano</span><span data-en>Lettuce, tomato, cucumber, olives, red onion, oregano</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata tonno & avocado</span><span data-en>Tuna & avocado salad</span></div><div class="menu-item-desc"><span data-it>Tonno in olio cottura, avocado, lattuga, lime, sesamo (4,11)</span><span data-en>Slow-cooked tuna in oil, avocado, lettuce, lime, sesame seeds (4,11)</span></div></div><div class="menu-item-price">€18</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata con pollo a straccetti</span><span data-en>Shredded chicken salad</span></div><div class="menu-item-desc"><span data-it>Misticanza, pollo a straccetti scottato, pomodorini, cetriolo, olive, dressing al limone</span><span data-en>Mixed greens, seared shredded chicken, cherry tomatoes, cucumber, olives, lemon dressing</span></div></div><div class="menu-item-price">€15</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Contorni</span><span data-en>Side Dishes</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Verdure grigliate</span><span data-en>Grilled vegetables</span></div><div class="menu-item-desc"><span data-it>Verdure miste di stagione, olio EVO, sale</span><span data-en>Mixed seasonal vegetables, EVO oil, salt</span></div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Patate al forno</span><span data-en>Roasted potatoes</span></div><div class="menu-item-desc"><span data-it>Patate, olio EVO, rosmarino, sale</span><span data-en>Potatoes, EVO oil, rosemary, salt</span></div></div><div class="menu-item-price">€5</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata verde</span><span data-en>Green salad</span></div><div class="menu-item-desc"><span data-it>Lattuga, olio EVO, limone, sale</span><span data-en>Lettuce, EVO oil, lemon, salt</span></div></div><div class="menu-item-price">€5</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata catanese</span><span data-en>Catanese salad</span></div><div class="menu-item-desc"><span data-it>Pomodoro, cipolla, capperi, olive, ricotta salata (7)</span><span data-en>Tomato, onion, capers, olives, salted ricotta cheese (7)</span></div></div><div class="menu-item-price">€6</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Insalata mista</span><span data-en>Mixed salad</span></div><div class="menu-item-desc"><span data-it>Lattuga, pomodoro, carote, cipolla</span><span data-en>Lettuce, tomato, carrots, onion</span></div></div><div class="menu-item-price">€6</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title">Dessert</h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Cannolo siciliano scomposto</span><span data-en>Deconstructed cannolo</span></div><div class="menu-item-desc"><span data-it>Ricotta, zucchero, cialda, pistacchio (1,7,8)</span><span data-en>Ricotta cheese, sugar, cannolo shell, pistachio (1,7,8)</span></div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tiramisù al bicchiere</span><span data-en>Tiramisù in a glass</span></div><div class="menu-item-desc"><span data-it>Mascarpone, uova, savoiardi, caffè, cacao (1,3,7)</span><span data-en>Mascarpone, eggs, ladyfingers, coffee, cocoa (1,3,7)</span></div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Cheesecake al limone</span><span data-en>Lemon cheesecake</span></div><div class="menu-item-desc"><span data-it>Formaggio fresco, biscotti, limone (1,7)</span><span data-en>Fresh cheese, biscuits, lemon (1,7)</span></div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Gelato homemade</span><span data-en>Homemade, sugar-free & lactose-free gelato</span></div><div class="menu-item-desc"><span data-it>Bevanda vegetale, frutta fresca</span><span data-en>Plant-based milk, fresh fruit</span></div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Pannacotta al caramello salato</span><span data-en>Salted caramel pannacotta</span></div><div class="menu-item-desc"><span data-it>Panna, zucchero, caramello salato (7)</span><span data-en>Cream, sugar, salted caramel (7)</span></div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Siciliana di ricotta o Nutella</span><span data-en>Fried pastry with ricotta or Nutella</span></div><div class="menu-item-desc"><span data-it>Farina, ricotta o Nutella, zucchero (1,7,8)</span><span data-en>Flour, ricotta or Nutella, sugar (1,7,8)</span></div></div><div class="menu-item-price">€8</div></article>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="menu-panel" id="panel-breakfast" role="tabpanel">
+            <div class="menu-columns">
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Breakfast</span><span data-en>Breakfast</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Salmon Breakfast</div><div class="menu-item-desc"><span data-it>Crostone di pane, salmone, formaggio fresco spalmabile, rucola (1,4,7)</span><span data-en>Bread crouton, salmon, spreadable fresh cheese, rocket (1,4,7)</span></div></div><div class="menu-item-price">€13</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Benedict Eggs</div><div class="menu-item-desc"><span data-it>Uova in camicia, pane tostato, guanciale, salsa olandese e verdura saltata (1,3)</span><span data-en>Poached eggs, toast, cheek pork, hollandaise sauce and sautéed vegetables (1,3)</span></div></div><div class="menu-item-price">€9</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Vegetarian Breakfast</div><div class="menu-item-desc"><span data-it>Uova sode, avocado, lattuga, pomodori, salsa yogurt e patate fresche fritte (3,7)</span><span data-en>Hard boiled eggs, avocado, lettuce, tomatoes, yogurt sauce and fresh french fries (3,7)</span></div></div><div class="menu-item-price">€9</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Club Sandwich</div><div class="menu-item-desc"><span data-it>Pane in cassetta tostato con straccetti di pollo, guanciale, lattuga, pomodorini, maionese alla senape di Dijon e patate fresche fritte (1,3)</span><span data-en>Toasted sandwich bread with chicken strips, bacon, lettuce, cherry tomatoes, Dijon mustard mayonnaise and fresh french fries (1,3)</span></div></div><div class="menu-item-price">€10</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">English Full Breakfast</div><div class="menu-item-desc"><span data-it>Uova strapazzate, guanciale, salsiccia di Cassibile, verdure grigliate (3,7)</span><span data-en>Scrambled eggs, bacon, Cassibile sausage, grilled vegetables (3,7)</span></div></div><div class="menu-item-price">€10</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Pancake</div><div class="menu-item-desc"><span data-it>Pancake, sciroppo d’acero e frutti rossi (1,3)</span><span data-en>Pancakes, maple syrup and red fruits (1,3)</span></div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Crepes</div><div class="menu-item-desc"><span data-it>Crepes con Nutella e pistacchio (1,3)</span><span data-en>Crepes with Nutella and pistachio (1,3)</span></div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Italiana</div><div class="menu-item-desc"><span data-it>Cornetto vuoto, marmellata di arancia, yogurt bianco, cereali e frutta fresca di stagione (1,3,7)</span><span data-en>Empty croissant, orange jam, plain yogurt, cereals and fresh seasonal fruit (1,3,7)</span></div></div><div class="menu-item-price">€9</div></article>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="menu-panel" id="panel-bar" role="tabpanel">
+            <div class="menu-columns">
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Bar - Caffetteria</span><span data-en>Bar - Cafeteria</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Caffè</div></div><div class="menu-item-price">€4</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Cappuccino</div></div><div class="menu-item-price">€5</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Tea caldo</span><span data-en>Hot tea</span></div></div><div class="menu-item-price">€5</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Acqua, bibite e succhi di frutta</span><span data-en>Water, soft drinks and fruit juices</span></div></div><div class="menu-item-price">€4</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Spremuta</span><span data-en>Fresh orange juice</span></div></div><div class="menu-item-price">€5</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Birra nazionale bottiglia 33 cl</span><span data-en>National beer bottle 33 cl</span></div></div><div class="menu-item-price">€6</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Birra estera bottiglia 33 cl</span><span data-en>Imported beer bottle 33 cl</span></div></div><div class="menu-item-price">€7</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Birra Messina 20 cl / 40 cl</div></div><div class="menu-item-price">€4 | €7</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Birra Messina | Cristalli di Sale 20 cl / 40 cl</div></div><div class="menu-item-price">€4 | €7</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Birra Maretto di Passerina 75 cl</div></div><div class="menu-item-price">€15</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Birra Maretto di Ribona 75 cl</div></div><div class="menu-item-price">€15</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Bollicine al calice</span><span data-en>Sparkling by the Glass</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Muròla | Varà</div><div class="menu-item-desc">Metodo charmat Passerina</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name"><span data-it>Bollicine del giorno</span><span data-en>Daily sparkling wine</span></div><div class="menu-item-desc">Metodo classico</div></div><div class="menu-item-price">€10</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Vini bianchi al calice</span><span data-en>White Wines by the Glass</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Milazzo | Terre della Baronia</div><div class="menu-item-desc">Catarratto</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Planeta | Allemanda</div><div class="menu-item-desc">Moscato di Noto</div></div><div class="menu-item-price">€9</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Cusumano | Angimbè</div><div class="menu-item-desc">Inzolia, Chardonnay</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Cusumano | Shamaris</div><div class="menu-item-desc">Grillo</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Muròla | Vore</div><div class="menu-item-desc">Pecorino</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Cusumano | Alta Mora Etna Bianco</div><div class="menu-item-desc">Carricante</div></div><div class="menu-item-price">€10</div></article>
+                </div>
+              </section>
+
+              <section class="menu-category-card">
+                <h3 class="menu-category-title"><span data-it>Vini rosati e rossi al calice</span><span data-en>Rosé & Red Wines by the Glass</span></h3>
+                <div class="menu-item-list">
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Marabino | Rosa Nera</div><div class="menu-item-desc">Nero d’Avola</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Milazzo | Terre della Baronia</div><div class="menu-item-desc">Inzolia Rosa in purezza</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Muròla | Mille rose</div><div class="menu-item-desc">Sangiovese, Montepulciano</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Cusumano | Alta Mora Etna Rosato</div><div class="menu-item-desc">Nerello Mascalese</div></div><div class="menu-item-price">€10</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Marabino | Rosso di Contrada</div><div class="menu-item-desc">Nero d’Avola</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Muròla | Teodoro</div><div class="menu-item-desc">Montepulciano</div></div><div class="menu-item-price">€8</div></article>
+                  <article class="menu-item-card"><div class="menu-item-copy"><div class="menu-item-name">Cusumano | Alta Mora Etna Rosso</div><div class="menu-item-desc">Nerello Mascalese</div></div><div class="menu-item-price">€10</div></article>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <p class="menu-note"><span data-it>Gli allergeni sono indicati secondo normativa UE. Se hai allergie o intolleranze, informa il personale. N.B. Tutti i piatti possono contenere prodotti abbattuti e surgelati dal produttore o da noi stessi. Servizio incluso.</span><span data-en>Allergens are indicated according to EU regulations. Please inform our staff about allergies or intolerances. Dishes may contain blast-chilled or frozen products from the producer or by us. Service included.</span></p>
         </div>
       </div>
     </section>
@@ -602,60 +543,12 @@
           <p class="section-text"><span data-it>Una selezione di scorci, tavoli sul mare e dettagli dell’esperienza Sorelle a Mare.</span><span data-en>A curated selection of views, seafront tables and details from the Sorelle a Mare experience.</span></p>
         </div>
         <div class="gallery-grid">
-          <figure class="gallery-card g-1" data-image="gallery_1.jpg">
-        <button class="gallery-button" type="button" aria-label="Open gallery image 1">
-          <img src="gallery_1.jpg" alt="Il tavolo sul mare" loading="lazy" />
-          <span class="gallery-meta">
-            <span class="gallery-kicker"><span data-it>Atmosfera</span><span data-en>Atmosphere</span></span>
-            <span class="gallery-title"><span data-it>Tavoli vista mare</span><span data-en>Seafront tables</span></span>
-          </span>
-        </button>
-      </figure>
-<figure class="gallery-card g-2" data-image="gallery_2.jpg">
-        <button class="gallery-button" type="button" aria-label="Open gallery image 2">
-          <img src="gallery_2.jpg" alt="Crudi e colori" loading="lazy" />
-          <span class="gallery-meta">
-            <span class="gallery-kicker"><span data-it>Cucina</span><span data-en>Cuisine</span></span>
-            <span class="gallery-title"><span data-it>Cucina di mare</span><span data-en>Sea cuisine</span></span>
-          </span>
-        </button>
-      </figure>
-<figure class="gallery-card g-3" data-image="gallery_3.jpg">
-        <button class="gallery-button" type="button" aria-label="Open gallery image 3">
-          <img src="gallery_3.jpg" alt="Un brindisi lento" loading="lazy" />
-          <span class="gallery-meta">
-            <span class="gallery-kicker"><span data-it>Dettagli</span><span data-en>Details</span></span>
-            <span class="gallery-title"><span data-it>Momenti da condividere</span><span data-en>Moments to share</span></span>
-          </span>
-        </button>
-      </figure>
-<figure class="gallery-card g-4" data-image="gallery_4.jpg">
-        <button class="gallery-button" type="button" aria-label="Open gallery image 4">
-          <img src="gallery_4.jpg" alt="Lungomare di Ortigia" loading="lazy" />
-          <span class="gallery-meta">
-            <span class="gallery-kicker"><span data-it>Vista</span><span data-en>View</span></span>
-            <span class="gallery-title"><span data-it>Lungomare di Ortigia</span><span data-en>Ortigia seafront</span></span>
-          </span>
-        </button>
-      </figure>
-<figure class="gallery-card g-5" data-image="gallery_5.jpg">
-        <button class="gallery-button" type="button" aria-label="Open gallery image 5">
-          <img src="gallery_5.jpg" alt="Tra luce, mare e servizio" loading="lazy" />
-          <span class="gallery-meta">
-            <span class="gallery-kicker"><span data-it>Esperienza</span><span data-en>Experience</span></span>
-            <span class="gallery-title"><span data-it>Atmosfera Sorelle a Mare</span><span data-en>Sorelle a Mare atmosphere</span></span>
-          </span>
-        </button>
-      </figure>
-<figure class="gallery-card g-6" data-image="gallery_6.jpg">
-        <button class="gallery-button" type="button" aria-label="Open gallery image 6">
-          <img src="gallery_6.jpg" alt="Cocktail &amp; signature mood" loading="lazy" />
-          <span class="gallery-meta">
-            <span class="gallery-kicker"><span data-it>Aperitivo</span><span data-en>Aperitif</span></span>
-            <span class="gallery-title"><span data-it>Cocktail al tramonto</span><span data-en>Sunset cocktails</span></span>
-          </span>
-        </button>
-      </figure>
+          <figure class="gallery-card g-1" data-image="gallery_1.jpg"><button class="gallery-button" type="button" aria-label="Open gallery image 1"><img src="gallery_1.jpg" alt="Il tavolo sul mare" loading="lazy" /><span class="gallery-meta"><span class="gallery-kicker"><span data-it>Atmosfera</span><span data-en>Atmosphere</span></span><span class="gallery-title"><span data-it>Tavoli vista mare</span><span data-en>Seafront tables</span></span></span></button></figure>
+          <figure class="gallery-card g-2" data-image="gallery_2.jpg"><button class="gallery-button" type="button" aria-label="Open gallery image 2"><img src="gallery_2.jpg" alt="Crudi e colori" loading="lazy" /><span class="gallery-meta"><span class="gallery-kicker"><span data-it>Cucina</span><span data-en>Cuisine</span></span><span class="gallery-title"><span data-it>Cucina di mare</span><span data-en>Sea cuisine</span></span></span></button></figure>
+          <figure class="gallery-card g-3" data-image="gallery_3.jpg"><button class="gallery-button" type="button" aria-label="Open gallery image 3"><img src="gallery_3.jpg" alt="Un brindisi lento" loading="lazy" /><span class="gallery-meta"><span class="gallery-kicker"><span data-it>Dettagli</span><span data-en>Details</span></span><span class="gallery-title"><span data-it>Momenti da condividere</span><span data-en>Moments to share</span></span></span></button></figure>
+          <figure class="gallery-card g-4" data-image="gallery_4.jpg"><button class="gallery-button" type="button" aria-label="Open gallery image 4"><img src="gallery_4.jpg" alt="Lungomare di Ortigia" loading="lazy" /><span class="gallery-meta"><span class="gallery-kicker"><span data-it>Vista</span><span data-en>View</span></span><span class="gallery-title"><span data-it>Lungomare di Ortigia</span><span data-en>Ortigia seafront</span></span></span></button></figure>
+          <figure class="gallery-card g-5" data-image="gallery_5.jpg"><button class="gallery-button" type="button" aria-label="Open gallery image 5"><img src="gallery_5.jpg" alt="Tra luce, mare e servizio" loading="lazy" /><span class="gallery-meta"><span class="gallery-kicker"><span data-it>Esperienza</span><span data-en>Experience</span></span><span class="gallery-title"><span data-it>Atmosfera Sorelle a Mare</span><span data-en>Sorelle a Mare atmosphere</span></span></span></button></figure>
+          <figure class="gallery-card g-6" data-image="gallery_6.jpg"><button class="gallery-button" type="button" aria-label="Open gallery image 6"><img src="gallery_6.jpg" alt="Aperitivo sul mare" loading="lazy" /><span class="gallery-meta"><span class="gallery-kicker"><span data-it>Aperitivo</span><span data-en>Aperitif</span></span><span class="gallery-title"><span data-it>Aperitivo sul mare</span><span data-en>Seafront aperitif</span></span></span></button></figure>
         </div>
       </div>
     </section>
@@ -672,7 +565,7 @@
                 <div class="booking-hour"><strong><span data-it>Tutti i giorni</span><span data-en>Every day</span></strong><span>08:30 – 00:00</span></div>
                 <div class="booking-hour"><strong><span data-it>Colazione</span><span data-en>Breakfast</span></strong><span>08:30 – 11:30</span></div>
                 <div class="booking-hour"><strong><span data-it>Pranzo</span><span data-en>Lunch</span></strong><span>11:30 – 16:00</span></div>
-                <div class="booking-hour"><strong><span data-it>Aperitivo &amp; Cena</span><span data-en>Aperitif &amp; Dinner</span></strong><span>16:00 – 00:00</span></div>
+                <div class="booking-hour"><strong><span data-it>Aperitivo & Cena</span><span data-en>Aperitif & Dinner</span></strong><span>16:00 – 00:00</span></div>
               </div>
               <div class="booking-links">
                 <a class="chip-link" href="tel:09313380163">📞 0931 338 0163</a>
@@ -683,84 +576,19 @@
             <div class="booking-form-wrap">
               <h3 class="book-form-title" data-it>Prenota ora</h3>
               <h3 class="book-form-title" data-en>Book now</h3>
-
               <form id="reservationForm" action="https://script.google.com/macros/s/AKfycbx3OAR1oHYP81_CSF4pdfXRdUK0RgHlBU_NZ3hPt7-ziiFBkw2geMgVHJwXmRpqMf-F_Q/exec" method="post" target="bridgeTarget">
                 <input type="hidden" name="api_key" value="sorelleponte2025" />
                 <input type="hidden" name="restaurant_name" value="Sorelle a Mare" />
                 <input type="hidden" name="source" value="website-form" />
-
                 <div class="book-form-grid">
-                  <div class="book-field">
-                    <label data-it>Nome e cognome</label>
-                    <label data-en>Full name</label>
-                    <input type="text" name="customer_name" required />
-                  </div>
-                  <div class="book-field">
-                    <label data-it>Telefono</label>
-                    <label data-en>Phone</label>
-                    <input type="tel" name="phone" required />
-                  </div>
-                  <div class="book-field">
-                    <label>Email</label>
-                    <input type="email" name="email" required />
-                  </div>
-                  <div class="book-field">
-                    <label data-it>Persone</label>
-                    <label data-en>Guests</label>
-                    <select name="guests" required>
-                      <option value="">Seleziona</option>
-                      <option>1</option><option>2</option><option>3</option><option>4</option>
-                      <option>5</option><option>6</option><option>7</option><option>8</option>
-                      <option>9</option><option>10</option><option>11</option><option>12</option>
-                    </select>
-                  </div>
-                  <div class="book-field">
-                    <label data-it>Data</label>
-                    <label data-en>Date</label>
-                    <input type="date" name="booking_date" required />
-                  </div>
-                  <div class="book-field">
-                    <label data-it>Orario</label>
-                    <label data-en>Time</label>
-                    <select name="booking_time" required>
-                      <option value="">Seleziona</option>
-                      <option value="08:30">08:30</option>
-                      <option value="09:00">09:00</option>
-                      <option value="09:30">09:30</option>
-                      <option value="10:00">10:00</option>
-                      <option value="10:30">10:30</option>
-                      <option value="11:00">11:00</option>
-                      <option value="11:30">11:30</option>
-                      <option value="12:00">12:00</option>
-                      <option value="12:30">12:30</option>
-                      <option value="13:00">13:00</option>
-                      <option value="13:30">13:30</option>
-                      <option value="14:00">14:00</option>
-                      <option value="14:30">14:30</option>
-                      <option value="15:00">15:00</option>
-                      <option value="15:30">15:30</option>
-                      <option value="16:00">16:00</option>
-                      <option value="16:30">16:30</option>
-                      <option value="17:00">17:00</option>
-                      <option value="17:30">17:30</option>
-                      <option value="18:00">18:00</option>
-                      <option value="18:30">18:30</option>
-                      <option value="19:00">19:00</option>
-                      <option value="19:30">19:30</option>
-                      <option value="20:00">20:00</option>
-                      <option value="20:30">20:30</option>
-                      <option value="21:00">21:00</option>
-                      <option value="21:30">21:30</option>
-                      <option value="22:00">22:00</option>
-                    </select>
-                  </div>
-                  <div class="book-field book-full">
-                    <label data-it>Note</label>
-                    <label data-en>Notes</label>
-                    <textarea name="notes"></textarea>
-                  </div>
+                  <div class="book-field"><label data-it>Nome e cognome</label><label data-en>Full name</label><input type="text" name="customer_name" required /></div>
+                  <div class="book-field"><label data-it>Telefono</label><label data-en>Phone</label><input type="tel" name="phone" required /></div>
+                  <div class="book-field"><label>Email</label><input type="email" name="email" required /></div>
+                  <div class="book-field"><label data-it>Persone</label><label data-en>Guests</label><select name="guests" required><option value="">Seleziona</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></div>
+                  <div class="book-field"><label data-it>Data</label><label data-en>Date</label><input type="date" name="booking_date" required /></div>
+                  <div class="book-field"><label data-it>Orario</label><label data-en>Time</label><select name="booking_time" required><option value="">Seleziona</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option></select></div>
+                  <div class="book-field book-full"><label data-it>Note</label><label data-en>Notes</label><textarea name="notes"></textarea></div>
                 </div>
-
                 <div class="submit-row">
                   <button class="button" type="submit"><span data-it>Invia prenotazione</span><span data-en>Send reservation</span></button>
                   <p id="reservationMessage" class="book-msg"></p>
@@ -781,22 +609,10 @@
             <h2 class="section-title"><span data-it>Vieni a <em>trovarci</em></span><span data-en>Come <em>find us</em></span></h2>
           </div>
           <div class="contact-grid">
-            <div class="contact-block">
-              <h4><span data-it>Indirizzo</span><span data-en>Address</span></h4>
-              <p>Lungomare di Ortigia<br />Siracusa, Sicilia</p>
-            </div>
-            <div class="contact-block">
-              <h4><span data-it>Telefono</span><span data-en>Phone</span></h4>
-              <p><a href="tel:09313380163">0931 338 0163</a></p>
-            </div>
-            <div class="contact-block">
-              <h4><span data-it>Orari</span><span data-en>Hours</span></h4>
-              <p><span data-it>Tutti i giorni · 08:30 – 00:00</span><span data-en>Every day · 08:30 – 00:00</span></p>
-            </div>
-            <div class="contact-block">
-              <h4>Social</h4>
-              <p><a href="https://www.instagram.com/sorelleamareortigia?igsh=bXF4OGg4MXlpOWJt" target="_blank" rel="noopener">Instagram</a></p>
-            </div>
+            <div class="contact-block"><h4><span data-it>Indirizzo</span><span data-en>Address</span></h4><p>Lungomare di Ortigia<br />Siracusa, Sicilia</p></div>
+            <div class="contact-block"><h4><span data-it>Telefono</span><span data-en>Phone</span></h4><p><a href="tel:09313380163">0931 338 0163</a></p></div>
+            <div class="contact-block"><h4><span data-it>Orari</span><span data-en>Hours</span></h4><p><span data-it>Tutti i giorni · 08:30 – 00:00</span><span data-en>Every day · 08:30 – 00:00</span></p></div>
+            <div class="contact-block"><h4>Social</h4><p><a href="https://www.instagram.com/sorelleamareortigia?igsh=bXF4OGg4MXlpOWJt" target="_blank" rel="noopener">Instagram</a></p></div>
           </div>
         </div>
         <div class="map-card" data-reveal>
@@ -885,7 +701,6 @@
       lightboxImage.src = '';
       body.style.overflow = '';
     }
-
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) closeLightbox();
@@ -905,225 +720,25 @@
     }, { threshold: 0.14 });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    /* ── Live weather Siracusa ── */
-    (async function fetchWeather() {
-      const WMO_ICON = {
-        0:'☀️', 1:'🌤️', 2:'⛅', 3:'☁️',
-        45:'🌫️', 48:'🌫️',
-        51:'🌦️', 53:'🌦️', 55:'🌧️',
-        61:'🌧️', 63:'🌧️', 65:'🌧️',
-        71:'🌨️', 73:'🌨️', 75:'❄️',
-        80:'🌦️', 81:'🌧️', 82:'⛈️',
-        95:'⛈️', 96:'⛈️', 99:'⛈️'
-      };
-      try {
-        const r = await fetch(
-          'https://api.open-meteo.com/v1/forecast?latitude=37.07&longitude=15.29&current_weather=true&timezone=Europe%2FRome'
-        );
-        const data = await r.json();
-        const cw = data.current_weather;
-        const icon = WMO_ICON[cw.weathercode] ?? '🌡️';
-        const temp = Math.round(cw.temperature);
-        document.getElementById('weatherIcon').textContent = icon;
-        document.getElementById('weatherTemp').textContent = temp + '°C';
-      } catch(e) {
-        document.getElementById('weatherTemp').textContent = '—';
-      }
-    })();
-
-    /* ── Dropdown: accordion su mobile, hover su desktop ── */
-    const navDropdown = document.getElementById('navDropdown');
-    navDropdown?.querySelector('.nav-dropdown-toggle')?.addEventListener('click', (e) => {
-      if (window.innerWidth <= 640) {
-        e.stopPropagation();
-        navDropdown.classList.toggle('open');
-      }
-    });
-    document.addEventListener('click', (e) => {
-      if (!navDropdown?.contains(e.target)) {
-        navDropdown?.classList.remove('open');
-      }
-    });
-
     const reservationForm = document.getElementById('reservationForm');
     const reservationMessage = document.getElementById('reservationMessage');
-    const emailInput = reservationForm.querySelector('input[name="email"]');
-    const bookingDateInput = reservationForm.querySelector('input[name="booking_date"]');
-    if (bookingDateInput) bookingDateInput.min = new Date().toISOString().split('T')[0];
-
-    reservationForm.addEventListener('submit', (event) => {
-      if (!emailInput.checkValidity()) {
-        event.preventDefault();
-        reservationMessage.className = 'book-msg error';
-        reservationMessage.textContent = body.classList.contains('lang-en')
-          ? 'Please enter a valid email address to continue.'
-          : 'Inserisci un indirizzo email valido per continuare.';
-        emailInput.focus();
-        return;
-      }
-      reservationMessage.className = 'book-msg success';
-      reservationMessage.textContent = body.classList.contains('lang-en')
-        ? 'Request sent. We will contact you to confirm.'
-        : 'Richiesta inviata. Ti contatteremo per la conferma.';
-      setTimeout(() => reservationForm.reset(), 700);
+    reservationForm?.addEventListener('submit', () => {
+      reservationMessage.textContent = document.body.classList.contains('lang-en') ? 'Reservation request sent.' : 'Richiesta inviata.';
+      setTimeout(() => reservationForm.reset(), 500);
     });
+
+    (async function fetchWeather() {
+      try {
+        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.0755&longitude=15.2866&current=temperature_2m,weather_code&timezone=Europe%2FRome');
+        const data = await response.json();
+        const temp = Math.round(data.current.temperature_2m);
+        document.getElementById('weatherTemp').textContent = `${temp}°C`;
+        const code = data.current.weather_code;
+        document.getElementById('weatherIcon').textContent = code === 0 ? '☀️' : code < 4 ? '⛅' : code < 70 ? '🌧️' : '🌊';
+      } catch (error) {
+        document.getElementById('weatherTemp').textContent = '—°C';
+      }
+    })();
   </script>
-<style>
-.brand-lockup img.wordmark{display:none!important}.brand-lockup img.icon{width:46px}.hero-center-logo{position:absolute;z-index:2;left:50%;top:43%;transform:translate(-50%,-50%);width:min(390px,42vw);opacity:.96;filter:drop-shadow(0 14px 32px rgba(20,48,71,.10));pointer-events:none}
-@media(max-width:920px){.site-header{padding:8px 0!important}.nav-shell{width:min(calc(100% - 16px),1380px)!important;display:grid!important;grid-template-columns:1fr auto!important;align-items:center!important;gap:8px!important;padding:10px 12px!important;border-radius:24px!important}.nav-menu{position:static!important;display:flex!important;flex-direction:row!important;justify-content:center!important;align-items:center!important;gap:clamp(10px,2.4vw,20px)!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden!important;white-space:nowrap!important}.nav-menu a{font-size:clamp(7px,1.65vw,10px)!important;letter-spacing:.20em!important;padding-bottom:3px!important}.nav-actions{gap:6px!important}.lang-switch{padding:3px!important}.lang-switch button{padding:6px 7px!important;font-size:8px!important;letter-spacing:.14em!important}.nav-actions .button{display:inline-flex!important;min-height:36px!important;padding:0 12px!important;font-size:8px!important;letter-spacing:.16em!important}.nav-toggle{display:none!important}.hero{padding-top:112px!important}.hero-center-logo{width:min(300px,52vw);top:40%}}
-@media(max-width:640px){.nav-shell{grid-template-columns:1fr auto!important;gap:6px!important;padding:9px 10px!important}.nav-menu{gap:clamp(7px,1.8vw,12px)!important;justify-content:center!important}.nav-menu a{font-size:clamp(6px,1.45vw,8px)!important;letter-spacing:.16em!important}.nav-actions .button{min-height:34px!important;padding:0 10px!important;font-size:7px!important;letter-spacing:.13em!important}.lang-switch button{padding:5px 6px!important;font-size:7px!important}.hero-center-logo{width:min(260px,56vw);top:38%}}
-@media(max-width:420px){.nav-shell{width:min(calc(100% - 12px),1380px)!important;padding:8px!important;grid-template-columns:1fr auto!important}.nav-menu{gap:7px!important}.nav-menu a{font-size:6.2px!important;letter-spacing:.12em!important}.nav-actions .button{display:inline-flex!important;min-height:32px!important;padding:0 8px!important;font-size:6.5px!important}.lang-switch button{padding:5px 5px!important}.hero{padding-top:100px!important}.hero-center-logo{width:min(235px,58vw);top:37%}}
-</style>
 </body>
 </html>
-<!-- Mobile desktop-inspired refinement -->
-<style>
-  @media (max-width: 920px) {
-    .site-header { padding: 10px 0; }
-    .site-header.is-scrolled { padding: 8px 0; }
-    .nav-shell {
-      width: min(calc(100% - 20px), 1380px);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 10px 12px;
-      padding: 12px 14px 10px;
-      border-radius: 30px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(23,53,75,.08);
-      backdrop-filter: blur(18px);
-    }
-    .nav-actions { gap: 8px; }
-    .nav-actions .button {
-      display: inline-flex;
-      min-height: 40px;
-      padding: 0 14px;
-      font-size: 9px;
-      letter-spacing: .18em;
-      box-shadow: 0 8px 20px rgba(66,144,192,.18);
-    }
-    .lang-switch { padding: 3px; }
-    .lang-switch button { padding: 7px 8px; font-size: 9px; letter-spacing: .16em; }
-    .nav-toggle { display: none !important; }
-    .nav-menu {
-      position: static;
-      display: flex !important;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 18px;
-      padding: 8px 2px 0;
-      background: transparent;
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-    .nav-menu::-webkit-scrollbar { display: none; }
-    .nav-menu a {
-      white-space: nowrap;
-      font-size: 9px;
-      letter-spacing: .22em;
-      padding-bottom: 4px;
-    }
-
-    .hero { min-height: 92svh; padding: 156px 0 56px; align-items: end; }
-    .hero::before {
-      background:
-        linear-gradient(90deg, rgba(250,247,241,.86) 0%, rgba(250,247,241,.70) 36%, rgba(250,247,241,.34) 68%, rgba(250,247,241,.12) 100%),
-        linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,0));
-    }
-    .hero-media img, .hero-media video { object-position: center center; }
-    .hero-copy { max-width: 760px; gap: 16px; }
-    .eyebrow { font-size: 10px; letter-spacing: .28em; }
-    .hero-brand { width: min(720px, 100%); }
-    .hero-actions {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-    .button, .button-ghost { min-height: 50px; padding: 0 14px; font-size: 10px; letter-spacing: .18em; }
-
-    .signature-strip { margin-top: -128px; }
-    .signature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-    .signature-card { padding: 18px 10px; border-radius: 20px; }
-    .signature-caption { font-size: 9px; letter-spacing: .14em; }
-
-    .gallery-grid {
-      grid-template-columns: 1.15fr .95fr .95fr;
-      gap: 10px;
-      grid-template-areas: 'a b c' 'a d e' 'f d e';
-    }
-    .gallery-card { min-height: 180px; }
-    .gallery-button { border-radius: 18px; }
-    .gallery-meta { left: 12px; right: 12px; bottom: 12px; }
-    .gallery-kicker { font-size: 8px; letter-spacing: .18em; }
-    .gallery-title { font-size: 22px; }
-  }
-
-  @media (max-width: 640px) {
-    section { padding: 74px 0; }
-    .container { width: min(calc(100% - 24px), var(--max)); }
-    .nav-shell { width: min(calc(100% - 16px), 1380px); padding: 10px 12px 9px; border-radius: 26px; gap: 8px 10px; }
-    .brand-lockup img.icon { width: 27px; }
-    .brand-lockup img.wordmark { width: 145px; max-width: 49vw; }
-    .nav-actions .button { min-height: 36px; padding: 0 12px; font-size: 8px; letter-spacing: .15em; }
-    .lang-switch button { padding: 6px 7px; font-size: 8px; }
-    .nav-menu { justify-content: flex-start; gap: 16px; padding-top: 7px; }
-    .nav-menu a { font-size: 8px; letter-spacing: .20em; }
-    .nav-weather { font-size: 8px; padding: 4px 8px 4px 7px; gap: 4px; }
-    .weather-icon { font-size: 12px; }
-    .weather-temp { font-size: 9px; }
-    .weather-label { display: none; }
-    .nav-dropdown-toggle { font-size: 8px; letter-spacing: .20em; }
-
-    .hero { min-height: 92svh; padding: 142px 0 44px; }
-    .hero-brand { width: 100%; }
-    .hero-actions { grid-template-columns: 1fr 1fr; }
-    .button, .button-ghost { width: 100%; min-height: 48px; font-size: 9px; letter-spacing: .16em; }
-    .eyebrow { font-size: 9px; letter-spacing: .22em; }
-    .eyebrow::before { width: 34px; }
-
-    .signature-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    .signature-number { font-size: 28px; }
-
-    .gallery-grid { gap: 8px; }
-    .gallery-card { min-height: 138px; }
-    .gallery-button { border-radius: 16px; }
-    .gallery-meta { display: none; }
-
-    .book-form-grid { grid-template-columns: 1fr; }
-    .booking-layout, .story-layout, .contact-layout { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 420px) {
-    .brand-lockup img.wordmark { width: 132px; }
-    .nav-actions .button { display: none; }
-    .nav-shell { grid-template-columns: minmax(0, 1fr) auto; }
-    .hero { padding-top: 130px; }
-  }
-</style>
-<!-- Final premium navbar + hero logo upgrade -->
-<style>
-.site-header{padding:14px 0!important;transition:padding .35s ease,background .35s ease!important;background:transparent!important;border-bottom:0!important;backdrop-filter:none!important}.nav-shell{background:rgba(255,255,255,.26)!important;border:1px solid rgba(255,255,255,.34)!important;backdrop-filter:blur(18px) saturate(1.15)!important;-webkit-backdrop-filter:blur(18px) saturate(1.15)!important;box-shadow:0 14px 42px rgba(16,45,66,.08)!important;transition:background .35s ease,box-shadow .35s ease,border-color .35s ease,padding .35s ease!important}.site-header.is-scrolled{padding:8px 0!important;background:transparent!important;border-bottom:0!important;backdrop-filter:none!important}.site-header.is-scrolled .nav-shell{background:rgba(255,255,255,.88)!important;border-color:rgba(23,53,75,.09)!important;box-shadow:0 18px 46px rgba(16,45,66,.13)!important}.brand-lockup img.icon{transition:transform .35s ease,filter .35s ease!important}.site-header.is-scrolled .brand-lockup img.icon{transform:scale(.92)!important}.nav-menu a{transition:color .25s ease,opacity .25s ease!important}.nav-menu a:hover{color:var(--brand)!important}.nav-actions .button{box-shadow:0 12px 26px rgba(66,144,192,.22)!important}.hero-center-logo{position:absolute!important;z-index:3!important;left:50%!important;top:38%!important;transform:translate(-50%,-50%)!important;width:min(360px,38vw)!important;height:auto!important;opacity:.96!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;filter:drop-shadow(0 12px 28px rgba(12,35,54,.18))!important;pointer-events:none!important;animation:heroLogoFade .95s ease .18s both!important}@keyframes heroLogoFade{from{opacity:0;transform:translate(-50%,-45%) scale(.96)}to{opacity:.96;transform:translate(-50%,-50%) scale(1)}}@media(max-width:920px){.site-header{padding:10px 0!important}.site-header.is-scrolled{padding:6px 0!important}.nav-shell{background:rgba(255,255,255,.42)!important;border-color:rgba(255,255,255,.40)!important}.site-header.is-scrolled .nav-shell{background:rgba(255,255,255,.92)!important}.hero-center-logo{width:min(280px,52vw)!important;top:35%!important}}@media(max-width:640px){.hero-center-logo{width:min(240px,56vw)!important;top:34%!important}}@media(max-width:420px){.hero-center-logo{width:min(210px,58vw)!important;top:33%!important}}
-</style>
-<style>
-@media (max-width: 640px) {
-  .nav-shell{grid-template-columns:1fr auto!important;align-items:center!important;padding:9px 12px!important;border-radius:26px!important;gap:6px!important}
-  .nav-toggle{display:none!important}
-  .nav-actions{display:flex!important;align-items:center!important;gap:6px!important}
-  .nav-actions .button{display:inline-flex!important;min-height:34px!important;padding:0 12px!important;font-size:8px!important;letter-spacing:.15em!important}
-  .lang-switch button{padding:5px 7px!important;font-size:8px!important}
-  .nav-menu{display:flex!important;position:static!important;flex-direction:row!important;justify-content:center!important;align-items:center!important;flex-wrap:nowrap!important;gap:clamp(8px,2.2vw,16px)!important;padding:0!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important;overflow-x:auto!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch!important;white-space:nowrap!important}
-  .nav-menu::-webkit-scrollbar{display:none!important}
-  .nav-menu > li{border-bottom:0!important;width:auto!important}
-  .nav-menu a{font-size:clamp(7px,1.8vw,9px)!important;letter-spacing:.18em!important;padding:3px 0!important;display:inline!important;width:auto!important}
-  .nav-weather{font-size:9px!important;padding:5px 9px 5px 7px!important;gap:4px!important}
-  .weather-icon{font-size:12px!important}
-  .weather-temp{font-size:9px!important}
-  .weather-label{display:none!important}
-}
-</style>
-</style>
